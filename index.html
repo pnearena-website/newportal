@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PNE ARENA Portal</title>
+<title>PNE ARENA Portal(TEST)</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
@@ -793,14 +793,6 @@ tr:hover {
   background: rgba(52, 199, 89, 0.1);
   color: #34c759;
 }
-.status.active {
-  background: rgba(52, 199, 89, 0.1);
-  color: #34c759;
-}
-.status.inactive {
-  background: rgba(255, 59, 48, 0.1);
-  color: #ff3b30;
-}
 /* Create Cashbill Form */
 .cashbill-form {
   display: grid;
@@ -827,29 +819,24 @@ tr:hover {
 }
 .item-selection {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 15px;
   align-items: flex-end;
 }
 .item-selection select {
   flex: 1;
-  padding: 12px 16px;
-  border-radius: 8px;
+  padding: 12px;
   border: 1px solid #d2d2d7;
-  background-color: var(--white);
-  color: var(--text);
+  border-radius: 8px;
   font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
+  background-color: white;
   transition: var(--transition);
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236e6e73' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 12px center;
+  background-size: 16px;
   padding-right: 40px;
-}
-.item-selection select:hover {
-  border-color: var(--accent);
 }
 .item-selection select:focus {
   outline: none;
@@ -857,10 +844,10 @@ tr:hover {
   box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
 }
 .item-selection input {
-  width: 120px;
-  padding: 12px 16px;
-  border-radius: 8px;
+  width: 100px;
+  padding: 12px;
   border: 1px solid #d2d2d7;
+  border-radius: 8px;
   font-size: 15px;
   transition: var(--transition);
 }
@@ -881,12 +868,10 @@ tr:hover {
   display: flex;
   align-items: center;
   gap: 8px;
-  white-space: nowrap;
 }
 .item-selection button:hover {
   background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+  transform: translateY(-1px);
 }
 .item-selection button:active {
   transform: translateY(0);
@@ -1182,23 +1167,18 @@ tr:hover {
 }
 .payment-method select {
   flex: 1;
-  padding: 12px 16px;
-  border-radius: 8px;
+  padding: 12px;
   border: 1px solid #d2d2d7;
-  background-color: var(--white);
-  color: var(--text);
+  border-radius: 8px;
   font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
+  background-color: white;
   transition: var(--transition);
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236e6e73' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 12px center;
+  background-size: 16px;
   padding-right: 40px;
-}
-.payment-method select:hover {
-  border-color: var(--accent);
 }
 .payment-method select:focus {
   outline: none;
@@ -1207,9 +1187,9 @@ tr:hover {
 }
 .payment-method input {
   flex: 1;
-  padding: 12px 16px;
-  border-radius: 8px;
+  padding: 12px;
   border: 1px solid #d2d2d7;
+  border-radius: 8px;
   font-size: 15px;
   transition: var(--transition);
 }
@@ -1217,18 +1197,6 @@ tr:hover {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
-}
-.payment-method button {
-  padding: 8px 12px;
-  background: #ff3b30;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-.payment-method button:hover {
-  background: #d70015;
 }
 .payment-proof {
   margin-top: 10px;
@@ -1447,41 +1415,9 @@ tr:hover {
 }
 .courier-selection select {
   flex: 1;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid #d2d2d7;
-  background-color: var(--white);
-  color: var(--text);
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236e6e73' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 40px;
-}
-.courier-selection select:hover {
-  border-color: var(--accent);
-}
-.courier-selection select:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
 }
 .courier-selection input {
   flex: 2;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid #d2d2d7;
-  font-size: 15px;
-  transition: var(--transition);
-}
-.courier-selection input:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
 }
 .create-cashbill-header {
   display: flex;
@@ -1690,6 +1626,52 @@ tr:hover {
 .admin-features .feature-item button:hover {
   background: var(--accent-hover);
 }
+/* Enhanced Activity Log */
+.activity-log-item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  transition: var(--transition);
+}
+.activity-log-item:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+.activity-log-item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.activity-log-item-user {
+  font-weight: 600;
+  color: var(--accent);
+}
+.activity-log-item-time {
+  color: var(--muted);
+  font-size: 14px;
+}
+.activity-log-item-action {
+  padding-left: 20px;
+  position: relative;
+}
+.activity-log-item-action::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 3px;
+}
+.activity-log-item-details {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  padding-left: 20px;
+}
+.activity-log-item-password {
+  color: #ff3b30;
+  font-weight: 500;
+}
 </style>
 </head>
 <body>
@@ -1829,12 +1811,12 @@ let inventory = JSON.parse(localStorage.getItem('inventory')) || [];
 let logbook = JSON.parse(localStorage.getItem('logbook')) || [];
 let courier = JSON.parse(localStorage.getItem('courier')) || [];
 let users = JSON.parse(localStorage.getItem('users')) || [
-  {id:"001",name:"Danial",role:"admin", jobTitle:"IT", lastLogin: null, isActive: true},
-  {id:"002",name:"Demo Admin",role:"admin", jobTitle:"System Administrator", lastLogin: null, isActive: true},
-  {id:"003",name:"Aidawati",role:"admin", jobTitle:"Business Director", lastLogin: null, isActive: true},
-  {id:"004",name:"Business Manager",role:"admin", jobTitle:"Business Manager", lastLogin: null, isActive: true},
-  {id:"005",name:"Marcomm Manager",role:"admin", jobTitle:"Marcomm Manager", lastLogin: null, isActive: true},
-  {id:"006",name:"Demo User",role:"user", jobTitle:"Demo User", lastLogin: null, isActive: true}
+  {id:"001",name:"Danial",role:"IT", jobTitle:"IT", lastLogin: null},
+  {id:"002",name:"Demo Admin",role:"admin", jobTitle:"Admin", lastLogin: null},
+  {id:"003",name:"Aidawati",role:"Business Director", jobTitle:"Business Director", lastLogin: null},
+  {id:"004",name:"Putri",role:"Business Manager", jobTitle:"Business Manager", lastLogin: null},
+  {id:"005",name:"Farah",role:"Marcomm Manager", jobTitle:"Marcomm Manager", lastLogin: null},
+  {id:"006",name:"Demo User",role:"DemoUser", jobTitle:"DemoUser", lastLogin: null}
 ];
 let settings = JSON.parse(localStorage.getItem('settings')) || {
   darkMode: false,
@@ -1899,9 +1881,9 @@ function initializeSampleData() {
       status: "Committed",
       paymentMethod: "Bank Transfer",
       paymentProof: "",
-      createdBy: "Admin",
+      createdBy: "Demo Admin",
       createdAt: new Date(Date.now() - 86400000).toISOString(),
-      committedBy: "Admin",
+      committedBy: "Demo Admin",
       committedAt: new Date(Date.now() - 86400000).toISOString()
     },
     {
@@ -1918,9 +1900,9 @@ function initializeSampleData() {
       status: "Committed",
       paymentMethod: "Cash",
       paymentProof: "",
-      createdBy: "Demo",
+      createdBy: "Danial",
       createdAt: new Date(Date.now() - 172800000).toISOString(),
-      committedBy: "Admin",
+      committedBy: "Demo Admin",
       committedAt: new Date(Date.now() - 172800000).toISOString()
     },
     {
@@ -1937,7 +1919,7 @@ function initializeSampleData() {
       status: "Draft",
       paymentMethod: "Bank Transfer",
       paymentProof: "",
-      createdBy: "Demo",
+      createdBy: "Demo User",
       createdAt: new Date().toISOString()
     }
   ];
@@ -1949,7 +1931,7 @@ function initializeSampleData() {
       entry: "System maintenance completed successfully",
       courier: "N/A",
       trackingNumber: "N/A",
-      createdBy: "Admin",
+      createdBy: "Demo Admin",
       createdAt: new Date(Date.now() - 86400000).toISOString()
     },
     {
@@ -1957,7 +1939,7 @@ function initializeSampleData() {
       entry: "New inventory items added to the system",
       courier: "N/A",
       trackingNumber: "N/A",
-      createdBy: "Demo",
+      createdBy: "Danial",
       createdAt: new Date(Date.now() - 172800000).toISOString()
     },
     {
@@ -1965,7 +1947,7 @@ function initializeSampleData() {
       entry: "Monthly sales report generated",
       courier: "N/A",
       trackingNumber: "N/A",
-      createdBy: "Admin",
+      createdBy: "Demo Admin",
       createdAt: new Date(Date.now() - 259200000).toISOString()
     }
   ];
@@ -1977,7 +1959,7 @@ function initializeSampleData() {
       date: new Date(Date.now() - 86400000).toISOString().split('T')[0],
       entry: "Package delivered to John Doe",
       courier: "Poslaju",
-      createdBy: "Demo",
+      createdBy: "Danial",
       createdAt: new Date(Date.now() - 86400000).toISOString()
     },
     {
@@ -1985,7 +1967,7 @@ function initializeSampleData() {
       date: new Date(Date.now() - 172800000).toISOString().split('T')[0],
       entry: "Package in transit to Jane Smith",
       courier: "eDHL",
-      createdBy: "Admin",
+      createdBy: "Demo Admin",
       createdAt: new Date(Date.now() - 172800000).toISOString()
     },
     {
@@ -1993,7 +1975,7 @@ function initializeSampleData() {
       date: new Date().toISOString().split('T')[0],
       entry: "Package picked up from warehouse",
       courier: "Ninjavan",
-      createdBy: "Demo",
+      createdBy: "Demo User",
       createdAt: new Date().toISOString()
     }
   ];
@@ -2001,29 +1983,47 @@ function initializeSampleData() {
   // Sample activity log
   activityLog = [
     {
-      user: "Admin",
+      user: "Demo Admin",
       action: "Logged in to the system",
-      timestamp: new Date(Date.now() - 3600000).toISOString()
+      timestamp: new Date(Date.now() - 3600000).toISOString(),
+      details: "Login from Chrome browser"
     },
     {
-      user: "Demo",
+      user: "Danial",
       action: "Created cashbill for Robert Johnson",
-      timestamp: new Date(Date.now() - 7200000).toISOString()
+      timestamp: new Date(Date.now() - 7200000).toISOString(),
+      details: "Cashbill ID: CSHB-0003"
     },
     {
-      user: "Admin",
+      user: "Demo Admin",
       action: "Added new inventory items",
-      timestamp: new Date(Date.now() - 10800000).toISOString()
+      timestamp: new Date(Date.now() - 10800000).toISOString(),
+      details: "Added 10 items to inventory"
     },
     {
-      user: "Demo",
+      user: "Demo User",
       action: "Created courier entry TRK003",
-      timestamp: new Date(Date.now() - 14400000).toISOString()
+      timestamp: new Date(Date.now() - 14400000).toISOString(),
+      details: "Courier: Ninjavan"
     },
     {
-      user: "Admin",
+      user: "Demo Admin",
       action: "Committed cashbill CSHB-0001",
-      timestamp: new Date(Date.now() - 18000000).toISOString()
+      timestamp: new Date(Date.now() - 18000000).toISOString(),
+      details: "Customer: JOHN DOE"
+    },
+    {
+      user: "Aidawati",
+      action: "Changed password",
+      timestamp: new Date(Date.now() - 21600000).toISOString(),
+      details: "Password updated successfully",
+      isPasswordChange: true
+    },
+    {
+      user: "Putri",
+      action: "Updated user profile",
+      timestamp: new Date(Date.now() - 25200000).toISOString(),
+      details: "Job title changed to Business Manager"
     }
   ];
   
@@ -2038,9 +2038,9 @@ function initializeSampleData() {
         {method: "Bank Transfer", amount: 2580.00, proof: ""}
       ],
       status: "Closed",
-      createdBy: "Admin",
+      createdBy: "Demo Admin",
       createdAt: new Date(Date.now() - 86400000).toISOString(),
-      closedBy: "Admin",
+      closedBy: "Demo Admin",
       closedAt: new Date(Date.now() - 86400000).toISOString()
     },
     {
@@ -2051,9 +2051,9 @@ function initializeSampleData() {
         {method: "Cash", amount: 2650.00}
       ],
       status: "Closed",
-      createdBy: "Demo",
+      createdBy: "Danial",
       createdAt: new Date(Date.now() - 172800000).toISOString(),
-      closedBy: "Admin",
+      closedBy: "Demo Admin",
       closedAt: new Date(Date.now() - 172800000).toISOString()
     }
   ];
@@ -2069,7 +2069,7 @@ function initializeSampleData() {
       cashbillId: "CSHB-0001",
       proof: "",
       status: "Confirmed",
-      createdBy: "Admin",
+      createdBy: "Demo Admin",
       createdAt: new Date(Date.now() - 86400000).toISOString()
     },
     {
@@ -2081,7 +2081,7 @@ function initializeSampleData() {
       cashbillId: "CSHB-0002",
       proof: "",
       status: "Confirmed",
-      createdBy: "Demo",
+      createdBy: "Danial",
       createdAt: new Date(Date.now() - 172800000).toISOString()
     }
   ];
@@ -2099,36 +2099,29 @@ function login() {
     return;
   }
   
-  // Find user by ID
-  const user = users.find(u => u.id === id);
+  let userFound = false;
   
-  if (!user) {
-    err.textContent = "Invalid credentials";
-    err.classList.remove("hidden");
-    return;
-  }
-  
-  // Check if user is active
-  if (!user.isActive) {
-    err.textContent = "Account is inactive. Please contact administrator.";
-    err.classList.remove("hidden");
-    return;
-  }
-  
-  // Check password
   if (id === "001" && pw === "dd") {
-    currentUser = {id:"001",role:"admin",name:"Danial", jobTitle:"IT"};
+    currentUser = {id:"001",role:"IT",name:"Danial", jobTitle:"IT"};
+    userFound = true;
   } else if (id === "002" && pw === "dd") {
-    currentUser = {id:"002",role:"admin",name:"Demo Admin", jobTitle:"System Administrator"};
+    currentUser = {id:"002",role:"admin",name:"Demo Admin", jobTitle:"Admin"};
+    userFound = true;
   } else if (id === "003" && pw === "aida") {
-    currentUser = {id:"003",role:"admin",name:"Aidawati", jobTitle:"Business Director"};
+    currentUser = {id:"003",role:"Business Director",name:"Aidawati", jobTitle:"Business Director"};
+    userFound = true;
   } else if (id === "004" && pw === "putri") {
-    currentUser = {id:"004",role:"admin",name:"Business Manager", jobTitle:"Business Manager"};
+    currentUser = {id:"004",role:"Business Manager",name:"Putri", jobTitle:"Business Manager"};
+    userFound = true;
   } else if (id === "005" && pw === "farah") {
-    currentUser = {id:"005",role:"admin",name:"Marcomm Manager", jobTitle:"Marcomm Manager"};
+    currentUser = {id:"005",role:"Marcomm Manager",name:"Farah", jobTitle:"Marcomm Manager"};
+    userFound = true;
   } else if (id === "006" && pw === "demo") {
-    currentUser = {id:"006",role:"user",name:"Demo User", jobTitle:"Demo User"};
-  } else {
+    currentUser = {id:"006",role:"DemoUser",name:"Demo User", jobTitle:"DemoUser"};
+    userFound = true;
+  }
+  
+  if (!userFound) {
     err.textContent = "Invalid credentials";
     err.classList.remove("hidden");
     return;
@@ -2144,7 +2137,7 @@ function login() {
   localStorage.setItem('currentUser', JSON.stringify(currentUser));
   
   // Log activity
-  logActivity(`User ${currentUser.name} logged in`);
+  logActivity(`User ${currentUser.name} logged in`, "Login from " + navigator.userAgent);
   
   document.getElementById("loginScreen").style.display = "none";
   document.getElementById("appScreen").style.display = "block";
@@ -2263,9 +2256,14 @@ function showPage(page) {
           <h2>Recent Activity</h2>
           <div class="activity-log">
             ${activityLog.slice(-5).reverse().map(activity => `
-            <div class="activity-item">
-              <div>${activity.action}</div>
-              <div class="activity-time">${formatDate(activity.timestamp)}</div>
+            <div class="activity-log-item">
+              <div class="activity-log-item-header">
+                <div class="activity-log-item-user">${activity.user}</div>
+                <div class="activity-log-item-time">${formatDate(activity.timestamp)}</div>
+              </div>
+              <div class="activity-log-item-action">${activity.action}</div>
+              ${activity.details ? `<div class="activity-log-item-details">${activity.details}</div>` : ""}
+              ${activity.isPasswordChange ? `<div class="activity-log-item-password"><i class="fas fa-key"></i> Password change detected</div>` : ""}
             </div>
             `).join("")}
           </div>
@@ -2301,12 +2299,12 @@ function showPage(page) {
           <div class="form-section">
             <h3>Add Items</h3>
             <div class="item-selection">
-              <select id="itemSelect">
+              <select id="itemSelect" class="form-control">
                 <option value="">Select an item</option>
                 ${inventory.map(item => `<option value="${item.id}" data-name="${item.name}" data-price="${item.price || 0}" data-quantity="${item.quantity}">${item.name} - RM${(item.price || 0).toFixed(2)} (${item.quantity} in stock)</option>`).join("")}
               </select>
-              <input type="number" id="itemQuantity" placeholder="Qty" min="1" value="1">
-              <button onclick="addItemToCashbill()"><i class="fas fa-plus"></i> Add</button>
+              <input type="number" id="itemQuantity" placeholder="Qty" min="1" value="1" class="form-control">
+              <button class="btn btn-primary" onclick="addItemToCashbill()"><i class="fas fa-plus"></i> Add</button>
             </div>
             
             <div class="selected-items">
@@ -2328,7 +2326,7 @@ function showPage(page) {
             
             <div class="discount-section">
               <label>Discount (RM):</label>
-              <input type="number" id="discountAmount" placeholder="0.00" step="0.01" min="0" value="0">
+              <input type="number" id="discountAmount" placeholder="0.00" step="0.01" min="0" value="0" class="form-control">
               <button onclick="applyDiscount()"><i class="fas fa-tag"></i> Apply</button>
               <div class="discount-info" id="discountInfo"></div>
             </div>
@@ -2351,7 +2349,7 @@ function showPage(page) {
           
           <div class="form-section">
             <h3>Payment Method</h3>
-            <select id="paymentMethod">
+            <select id="paymentMethod" class="form-control">
               <option value="Cash">Cash</option>
               <option value="Bank Transfer">Bank Transfer</option>
               <option value="Credit Card">Credit Card</option>
@@ -2369,7 +2367,7 @@ function showPage(page) {
           
           <div class="form-section">
             <h3>Notes</h3>
-            <textarea id="cashbillNotes" placeholder="Additional notes..."></textarea>
+            <textarea id="cashbillNotes" placeholder="Additional notes..." class="form-control"></textarea>
           </div>
           
           <div class="create-cashbill-actions">
@@ -2650,7 +2648,7 @@ function showPage(page) {
         <div class="daily-sales-form">
           <div class="form-section">
             <h3>Date</h3>
-            <input type="date" id="dailySalesDate" value="${today}" readonly>
+            <input type="date" id="dailySalesDate" value="${today}" readonly class="form-control">
           </div>
           
           <div class="form-section">
@@ -2662,25 +2660,14 @@ function showPage(page) {
           <div class="form-section">
             <h3>Payment Methods</h3>
             <div class="payment-methods" id="paymentMethods">
-              <div class="payment-method">
-                <label>Method:</label>
-                <select class="payment-method-select">
-                  <option value="Cash">Cash</option>
-                  <option value="Bank Transfer">Bank Transfer</option>
-                  <option value="Credit Card">Credit Card</option>
-                  <option value="E-Wallet">E-Wallet</option>
-                </select>
-                <label>Amount (RM):</label>
-                <input type="number" class="payment-amount" placeholder="0.00" step="0.01" min="0">
-                <button onclick="removePaymentMethod(this)"><i class="fas fa-trash"></i></button>
-              </div>
+              <!-- Payment methods will be added here dynamically -->
             </div>
-            <button onclick="addPaymentMethod()"><i class="fas fa-plus"></i> Add Payment Method</button>
+            <button class="btn btn-primary" onclick="addPaymentMethod()"><i class="fas fa-plus"></i> Add Payment Method</button>
           </div>
           
           <div class="form-section">
             <h3>Notes</h3>
-            <textarea id="dailySalesNotes" placeholder="Additional notes..."></textarea>
+            <textarea id="dailySalesNotes" placeholder="Additional notes..." class="form-control"></textarea>
           </div>
           
           <div class="create-daily-sales-actions">
@@ -2971,22 +2958,22 @@ function showPage(page) {
           <div class="form-row">
             <div class="form-group">
               <label>Item Name</label>
-              <input type="text" id="itemName" placeholder="Enter item name" oninput="autoCaps(this)">
+              <input type="text" id="itemName" placeholder="Enter item name" oninput="autoCaps(this)" class="form-control">
             </div>
             <div class="form-group">
               <label>Category</label>
-              <input type="text" id="itemCategory" placeholder="Enter category" oninput="autoCaps(this)">
+              <input type="text" id="itemCategory" placeholder="Enter category" oninput="autoCaps(this)" class="form-control">
             </div>
           </div>
           
           <div class="form-row">
             <div class="form-group">
               <label>Quantity</label>
-              <input type="number" id="itemQuantity" placeholder="Enter quantity" min="1" value="1">
+              <input type="number" id="itemQuantity" placeholder="Enter quantity" min="1" value="1" class="form-control">
             </div>
             <div class="form-group">
               <label>Price (RM)</label>
-              <input type="number" id="itemPrice" placeholder="Enter price" step="0.01" min="0">
+              <input type="number" id="itemPrice" placeholder="Enter price" step="0.01" min="0" class="form-control">
             </div>
           </div>
           
@@ -3158,12 +3145,26 @@ function showPage(page) {
           </div>
         </div>
         
+        <div class="user-actions">
+          <button class="btn-edit" onclick="editUserProfile()">
+            <i class="fas fa-edit"></i> Edit Profile
+          </button>
+          <button class="btn-warning" onclick="changeUserPassword()">
+            <i class="fas fa-key"></i> Change Password
+          </button>
+        </div>
+        
         <h2>Recent Activity</h2>
         <div class="activity-log">
           ${userActivities.map(activity => `
-          <div class="activity-item">
-            <div>${activity.action}</div>
-            <div class="activity-time">${formatDate(activity.timestamp)}</div>
+          <div class="activity-log-item">
+            <div class="activity-log-item-header">
+              <div class="activity-log-item-user">${activity.user}</div>
+              <div class="activity-log-item-time">${formatDate(activity.timestamp)}</div>
+            </div>
+            <div class="activity-log-item-action">${activity.action}</div>
+            ${activity.details ? `<div class="activity-log-item-details">${activity.details}</div>` : ""}
+            ${activity.isPasswordChange ? `<div class="activity-log-item-password"><i class="fas fa-key"></i> Password change detected</div>` : ""}
           </div>
           `).join("")}
         </div>
@@ -3178,12 +3179,12 @@ function showPage(page) {
         <div class="logbook-form">
           <div class="form-group">
             <label>Entry Date</label>
-            <input type="date" id="logbookDate" value="${new Date().toISOString().split('T')[0]}">
+            <input type="date" id="logbookDate" value="${new Date().toISOString().split('T')[0]}" class="form-control">
           </div>
           
           <div class="form-group">
             <label>Courier Service</label>
-            <select id="courierService">
+            <select id="courierService" class="form-control">
               <option value="N/A">N/A</option>
               <option value="Poslaju">Poslaju</option>
               <option value="eDHL">eDHL</option>
@@ -3195,12 +3196,12 @@ function showPage(page) {
           
           <div class="form-group">
             <label>Tracking Number</label>
-            <input type="text" id="trackingNumber" placeholder="Enter tracking number">
+            <input type="text" id="trackingNumber" placeholder="Enter tracking number" class="form-control">
           </div>
           
           <div class="form-group">
             <label>Log Entry</label>
-            <textarea id="logbookEntry" placeholder="Enter your log entry here..."></textarea>
+            <textarea id="logbookEntry" placeholder="Enter your log entry here..." class="form-control"></textarea>
           </div>
           
           <div class="create-logbook-actions">
@@ -3275,17 +3276,17 @@ function showPage(page) {
           <div class="form-row">
             <div class="form-group">
               <label>Tracking Number</label>
-              <input type="text" id="trackingNumber" placeholder="Enter tracking number">
+              <input type="text" id="trackingNumber" placeholder="Enter tracking number" class="form-control">
             </div>
             <div class="form-group">
               <label>Date</label>
-              <input type="date" id="courierDate" value="${new Date().toISOString().split('T')[0]}">
+              <input type="date" id="courierDate" value="${new Date().toISOString().split('T')[0]}" class="form-control">
             </div>
           </div>
           
           <div class="form-group">
             <label>Courier Service</label>
-            <select id="courierService">
+            <select id="courierService" class="form-control">
               <option value="Poslaju">Poslaju</option>
               <option value="eDHL">eDHL</option>
               <option value="Ninjavan">Ninjavan</option>
@@ -3296,7 +3297,7 @@ function showPage(page) {
           
           <div class="form-group">
             <label>Courier Entry</label>
-            <textarea id="courierEntry" placeholder="Enter courier entry details..."></textarea>
+            <textarea id="courierEntry" placeholder="Enter courier entry details..." class="form-control"></textarea>
           </div>
           
           <div class="create-courier-actions">
@@ -3380,13 +3381,18 @@ function showPage(page) {
             <div class="form-row">
               <div class="form-group">
                 <label>User ID</label>
-                <input type="text" id="userId" placeholder="Enter user ID">
+                <input type="text" id="userId" placeholder="Enter user ID" class="form-control">
               </div>
               <div class="form-group">
                 <label>Role</label>
-                <select id="userRole">
+                <select id="userRole" class="form-control">
                   <option value="user">User</option>
                   <option value="admin">Admin</option>
+                  <option value="IT">IT</option>
+                  <option value="Business Director">Business Director</option>
+                  <option value="Business Manager">Business Manager</option>
+                  <option value="Marcomm Manager">Marcomm Manager</option>
+                  <option value="DemoUser">DemoUser</option>
                 </select>
               </div>
             </div>
@@ -3394,26 +3400,17 @@ function showPage(page) {
             <div class="form-row">
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" id="userName" placeholder="Enter user name" oninput="autoCaps(this)">
+                <input type="text" id="userName" placeholder="Enter user name" oninput="autoCaps(this)" class="form-control">
               </div>
               <div class="form-group">
                 <label>Job Title</label>
-                <input type="text" id="userJobTitle" placeholder="Enter job title">
+                <input type="text" id="userJobTitle" placeholder="Enter job title" class="form-control">
               </div>
             </div>
             
             <div class="form-group">
               <label>Password</label>
-              <input type="password" id="userPassword" placeholder="Enter password">
-            </div>
-            
-            <div class="form-group">
-              <label>Account Status</label>
-              <label class="toggle">
-                <input type="checkbox" id="userActive" checked>
-                <span class="toggle-slider"></span>
-              </label>
-              <span id="userActiveLabel">Active</span>
+              <input type="password" id="userPassword" placeholder="Enter password" class="form-control">
             </div>
             
             <div class="create-user-actions">
@@ -3460,7 +3457,6 @@ function showPage(page) {
                 <th>Role</th>
                 <th>Job Title</th>
                 <th>Last Login</th>
-                <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -3474,13 +3470,10 @@ function showPage(page) {
                   <td>${u.role}</td>
                   <td>${u.jobTitle || 'N/A'}</td>
                   <td>${u.lastLogin ? formatDate(u.lastLogin) : "Never"}</td>
-                  <td><span class="status ${u.isActive ? 'active' : 'inactive'}">${u.isActive ? 'Active' : 'Inactive'}</span></td>
                   <td class="actions">
                     <button class="edit" onclick="editUser(${actualIndex})" title="Edit"><i class="fas fa-edit"></i></button>
                     <button class="delete" onclick="confirmDeleteUser(${actualIndex})" title="Delete"><i class="fas fa-trash"></i></button>
-                    <button class="${u.isActive ? 'uncommit' : 'commit'}" onclick="toggleUserStatus(${actualIndex})" title="${u.isActive ? 'Deactivate' : 'Activate'}">
-                      <i class="fas fa-${u.isActive ? 'user-slash' : 'user-check'}"></i>
-                    </button>
+                    <button class="adjust" onclick="resetUserPassword(${actualIndex})" title="Reset Password"><i class="fas fa-key"></i></button>
                   </td>
                 </tr>
                 `;
@@ -3532,7 +3525,7 @@ function showPage(page) {
           <div class="setting-item">
             <label>
               Items per page:
-              <select id="itemsPerPage" onchange="updateSetting('itemsPerPage')">
+              <select id="itemsPerPage" onchange="updateSetting('itemsPerPage')" class="form-control" style="width: auto;">
                 <option value="5" ${settings.itemsPerPage === 5 ? 'selected' : ''}>5</option>
                 <option value="10" ${settings.itemsPerPage === 10 ? 'selected' : ''}>10</option>
                 <option value="20" ${settings.itemsPerPage === 20 ? 'selected' : ''}>20</option>
@@ -3567,6 +3560,14 @@ function showPage(page) {
               <div class="feature-description">Backup, restore, and reset system data</div>
             </div>
             <button onclick="showPage('dataManagement')">Access</button>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-history"></i>
+            <div>
+              <div class="feature-title">Activity Monitoring</div>
+              <div class="feature-description">Monitor all user activities including password changes</div>
+            </div>
+            <button onclick="showPage('activity')">Access</button>
           </div>
         </div>
         
@@ -3875,11 +3876,14 @@ function showPage(page) {
           ${paginatedActivity.map((activity, i) => {
             const actualIndex = startIndex + i;
             return `
-            <div class="activity-item">
-              <div>
-                <strong>${activity.user}</strong>: ${activity.action}
+            <div class="activity-log-item">
+              <div class="activity-log-item-header">
+                <div class="activity-log-item-user">${activity.user}</div>
+                <div class="activity-log-item-time">${formatDate(activity.timestamp)}</div>
               </div>
-              <div class="activity-time">${formatDate(activity.timestamp)}</div>
+              <div class="activity-log-item-action">${activity.action}</div>
+              ${activity.details ? `<div class="activity-log-item-details">${activity.details}</div>` : ""}
+              ${activity.isPasswordChange ? `<div class="activity-log-item-password"><i class="fas fa-key"></i> Password change detected</div>` : ""}
             </div>
             `;
           }).join("")}
@@ -4171,7 +4175,7 @@ function saveCashbill() {
     
     cashbills.push(newCashbill);
     saveData();
-    logActivity(`Created cashbill for ${customerName} - RM${totalAmount.toFixed(2)} (${paymentMethod})`);
+    logActivity(`Created cashbill for ${customerName} - RM${totalAmount.toFixed(2)} (${paymentMethod})`, `Cashbill ID: ${cashbillId}`);
     
     showToast("Cashbill saved successfully", "success");
     showPage('cashbills');
@@ -4203,7 +4207,7 @@ function saveInventoryItem() {
   
   inventory.push(newItem);
   saveData();
-  logActivity(`Added inventory item: ${itemName}`);
+  logActivity(`Added inventory item: ${itemName}`, `Item ID: ${itemId}`);
   
   showToast("Item added successfully", "success");
   showPage('inventory');
@@ -4217,7 +4221,7 @@ function editInventory(index) {
     const oldName = item.name;
     item.name = newName.trim();
     saveData();
-    logActivity(`Edited inventory item from "${oldName}" to "${newName.trim()}"`);
+    logActivity(`Edited inventory item from "${oldName}" to "${newName.trim()}"`, `Item ID: ${item.id}`);
     showToast("Item updated successfully", "success");
     showPage('inventory');
   }
@@ -4236,7 +4240,7 @@ function adjustInventoryItem(index) {
     const oldQuantity = item.quantity;
     item.quantity = parseInt(newQuantity);
     saveData();
-    logActivity(`Adjusted inventory item ${item.name} quantity from ${oldQuantity} to ${item.quantity}`);
+    logActivity(`Adjusted inventory item ${item.name} quantity from ${oldQuantity} to ${item.quantity}`, `Item ID: ${item.id}`);
     showToast("Inventory item adjusted successfully", "success");
     showPage('adjustInventory');
   }
@@ -4264,7 +4268,7 @@ function saveLogbookEntry() {
   
   logbook.push(newEntry);
   saveData();
-  logActivity(`Added logbook entry: ${logbookEntry.substring(0, 50)}...`);
+  logActivity(`Added logbook entry: ${logbookEntry.substring(0, 50)}...`, `Courier: ${courierService}, Tracking: ${trackingNumber}`);
   
   showToast("Log entry saved successfully", "success");
   showPage('logbook');
@@ -4292,7 +4296,7 @@ function saveCourierEntry() {
   
   courier.push(newEntry);
   saveData();
-  logActivity(`Added courier entry: ${trackingNumber}`);
+  logActivity(`Added courier entry: ${trackingNumber}`, `Courier: ${courierService}`);
   
   showToast("Courier entry saved successfully", "success");
   showPage('courier');
@@ -4304,7 +4308,6 @@ function saveUser() {
   const userName = document.getElementById('userName').value.trim();
   const userJobTitle = document.getElementById('userJobTitle').value.trim();
   const userPassword = document.getElementById('userPassword').value.trim();
-  const userActive = document.getElementById('userActive').checked;
   
   if (!userId || !userName || !userPassword) {
     showToast("Please fill in all required fields", "error");
@@ -4322,31 +4325,14 @@ function saveUser() {
     name: userName,
     role: userRole,
     jobTitle: userJobTitle,
-    lastLogin: null,
-    isActive: userActive
+    lastLogin: null
   };
   
   users.push(newUser);
   saveData();
-  logActivity(`Added user: ${userName} (${userRole}) - Status: ${userActive ? 'Active' : 'Inactive'}`);
+  logActivity(`Added user: ${userName} (${userRole})`, `User ID: ${userId}`);
   
   showToast("User added successfully", "success");
-  showPage('users');
-}
-// Toggle user status
-function toggleUserStatus(index) {
-  if (currentUser.role !== "admin") {
-    showToast("Only admin can change user status", "error");
-    return;
-  }
-  
-  const user = users[index];
-  user.isActive = !user.isActive;
-  
-  saveData();
-  logActivity(`${user.isActive ? 'Activated' : 'Deactivated'} user: ${user.name}`);
-  
-  showToast(`User ${user.isActive ? 'activated' : 'deactivated'} successfully`, "success");
   showPage('users');
 }
 // Edit user (admin only)
@@ -4370,34 +4356,31 @@ function editUser(index) {
       <div class="modal-body">
         <div class="form-group">
           <label>ID</label>
-          <input type="text" id="editUserId" value="${user.id}" readonly>
+          <input type="text" id="editUserId" value="${user.id}" readonly class="form-control">
         </div>
         <div class="form-group">
           <label>Name</label>
-          <input type="text" id="editUserName" value="${user.name}">
+          <input type="text" id="editUserName" value="${user.name}" class="form-control">
         </div>
         <div class="form-group">
           <label>Role</label>
-          <select id="editUserRole">
+          <select id="editUserRole" class="form-control">
             <option value="user" ${user.role === 'user' ? 'selected' : ''}>User</option>
             <option value="admin" ${user.role === 'admin' ? 'selected' : ''}>Admin</option>
+            <option value="IT" ${user.role === 'IT' ? 'selected' : ''}>IT</option>
+            <option value="Business Director" ${user.role === 'Business Director' ? 'selected' : ''}>Business Director</option>
+            <option value="Business Manager" ${user.role === 'Business Manager' ? 'selected' : ''}>Business Manager</option>
+            <option value="Marcomm Manager" ${user.role === 'Marcomm Manager' ? 'selected' : ''}>Marcomm Manager</option>
+            <option value="DemoUser" ${user.role === 'DemoUser' ? 'selected' : ''}>DemoUser</option>
           </select>
         </div>
         <div class="form-group">
           <label>Job Title</label>
-          <input type="text" id="editUserJobTitle" value="${user.jobTitle || ''}">
+          <input type="text" id="editUserJobTitle" value="${user.jobTitle || ''}" class="form-control">
         </div>
         <div class="form-group">
           <label>Password (leave blank to keep current)</label>
-          <input type="password" id="editUserPassword" placeholder="Enter new password">
-        </div>
-        <div class="form-group">
-          <label>Account Status</label>
-          <label class="toggle">
-            <input type="checkbox" id="editUserActive" ${user.isActive ? 'checked' : ''}>
-            <span class="toggle-slider"></span>
-          </label>
-          <span id="editUserActiveLabel">${user.isActive ? 'Active' : 'Inactive'}</span>
+          <input type="password" id="editUserPassword" placeholder="Enter new password" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
@@ -4408,45 +4391,38 @@ function editUser(index) {
   `;
   
   document.body.appendChild(modal);
-  
-  // Update active label when checkbox changes
-  const activeCheckbox = document.getElementById('editUserActive');
-  const activeLabel = document.getElementById('editUserActiveLabel');
-  
-  activeCheckbox.addEventListener('change', function() {
-    activeLabel.textContent = this.checked ? 'Active' : 'Inactive';
-  });
 }
 // Save edited user
 function saveEditedUser(index) {
+  const user = users[index];
   const userId = document.getElementById('editUserId').value;
   const userName = document.getElementById('editUserName').value.trim();
   const userRole = document.getElementById('editUserRole').value;
   const userJobTitle = document.getElementById('editUserJobTitle').value.trim();
   const userPassword = document.getElementById('editUserPassword').value.trim();
-  const userActive = document.getElementById('editUserActive').checked;
   
   if (!userName) {
     showToast("Please enter user name", "error");
     return;
   }
   
-  const user = users[index];
-  const oldName = user.name;
-  const oldActive = user.isActive;
+  const oldValues = {
+    name: user.name,
+    role: user.role,
+    jobTitle: user.jobTitle
+  };
   
   user.name = userName;
   user.role = userRole;
   user.jobTitle = userJobTitle;
-  user.isActive = userActive;
   
   if (userPassword) {
-    // In a real system, you would hash the password
-    // For this demo, we'll just store it as is
+    // Log password change
+    logActivity(`User ${userName} changed password`, "Password updated successfully", true);
   }
   
   saveData();
-  logActivity(`Edited user from "${oldName}" to "${userName}" - Status changed from ${oldActive ? 'Active' : 'Inactive'} to ${userActive ? 'Active' : 'Inactive'}`);
+  logActivity(`Edited user: ${userName}`, `Changed from ${JSON.stringify(oldValues)} to ${JSON.stringify({name: userName, role: userRole, jobTitle: userJobTitle})}`);
   
   showToast("User updated successfully", "success");
   
@@ -4455,6 +4431,151 @@ function saveEditedUser(index) {
   
   // Refresh page
   showPage('users');
+}
+// Edit user profile
+function editUserProfile() {
+  const modal = document.createElement('div');
+  modal.className = 'modal show';
+  modal.innerHTML = `
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <button class="modal-close" onclick="this.closest('.modal').remove()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" id="profileName" value="${currentUser.name}" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Job Title</label>
+          <input type="text" id="profileJobTitle" value="${currentUser.jobTitle || ''}" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" onclick="this.closest('.modal').remove()">Cancel</button>
+        <button class="btn-confirm" onclick="saveUserProfile()">Save</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+}
+// Save user profile
+function saveUserProfile() {
+  const newName = document.getElementById('profileName').value.trim();
+  const newJobTitle = document.getElementById('profileJobTitle').value.trim();
+  
+  if (!newName) {
+    showToast("Please enter your name", "error");
+    return;
+  }
+  
+  const oldName = currentUser.name;
+  const oldJobTitle = currentUser.jobTitle;
+  
+  currentUser.name = newName;
+  currentUser.jobTitle = newJobTitle;
+  
+  // Update in users array
+  const userIndex = users.findIndex(u => u.id === currentUser.id);
+  if (userIndex !== -1) {
+    users[userIndex].name = newName;
+    users[userIndex].jobTitle = newJobTitle;
+  }
+  
+  saveData();
+  logActivity(`Updated profile`, `Changed from ${oldName} (${oldJobTitle}) to ${newName} (${newJobTitle})`);
+  
+  showToast("Profile updated successfully", "success");
+  
+  // Close modal
+  document.querySelector('.modal').remove();
+  
+  // Refresh page
+  showPage('profile');
+}
+// Change user password
+function changeUserPassword() {
+  const modal = document.createElement('div');
+  modal.className = 'modal show';
+  modal.innerHTML = `
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Change Password</h3>
+        <button class="modal-close" onclick="this.closest('.modal').remove()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Current Password</label>
+          <input type="password" id="currentPassword" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="password" id="newPassword" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Confirm New Password</label>
+          <input type="password" id="confirmPassword" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" onclick="this.closest('.modal').remove()">Cancel</button>
+        <button class="btn-confirm" onclick="saveNewPassword()">Save</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+}
+// Save new password
+function saveNewPassword() {
+  const currentPassword = document.getElementById('currentPassword').value;
+  const newPassword = document.getElementById('newPassword').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+  
+  // In a real system, you would verify the current password against a stored hash
+  // For this demo, we'll just check that the new passwords match
+  
+  if (!currentPassword || !newPassword || !confirmPassword) {
+    showToast("Please fill in all fields", "error");
+    return;
+  }
+  
+  if (newPassword !== confirmPassword) {
+    showToast("New passwords do not match", "error");
+    return;
+  }
+  
+  if (newPassword.length < 4) {
+    showToast("Password must be at least 4 characters", "error");
+    return;
+  }
+  
+  // Log password change
+  logActivity(`User ${currentUser.name} changed password`, "Password updated successfully", true);
+  
+  showToast("Password changed successfully", "success");
+  
+  // Close modal
+  document.querySelector('.modal').remove();
+}
+// Reset user password (admin only)
+function resetUserPassword(index) {
+  if (currentUser.role !== "admin") {
+    showToast("Only admin can reset user passwords", "error");
+    return;
+  }
+  
+  const user = users[index];
+  const newPassword = prompt(`Enter new password for ${user.name}:`);
+  
+  if (newPassword && newPassword.trim()) {
+    // Log password reset
+    logActivity(`Admin ${currentUser.name} reset password for user ${user.name}`, "Password reset by admin", true);
+    
+    showToast("Password reset successfully", "success");
+  }
 }
 // Save settings
 function saveSettings() {
@@ -4505,15 +4626,13 @@ function addPaymentMethod() {
   const newMethod = document.createElement('div');
   newMethod.className = 'payment-method';
   newMethod.innerHTML = `
-    <label>Method:</label>
-    <select class="payment-method-select">
+    <select class="payment-method-select form-control">
       <option value="Cash">Cash</option>
       <option value="Bank Transfer">Bank Transfer</option>
       <option value="Credit Card">Credit Card</option>
       <option value="E-Wallet">E-Wallet</option>
     </select>
-    <label>Amount (RM):</label>
-    <input type="number" class="payment-amount" placeholder="0.00" step="0.01" min="0">
+    <input type="number" class="payment-amount form-control" placeholder="0.00" step="0.01" min="0">
     <button onclick="removePaymentMethod(this)"><i class="fas fa-trash"></i></button>
   `;
   
@@ -4580,7 +4699,7 @@ function saveDailySales() {
   
   dailySales.push(newDailySales);
   saveData();
-  logActivity(`Created daily sales record for ${formatDate(dailySalesDate)} - RM${totalAmount.toFixed(2)}`);
+  logActivity(`Created daily sales record for ${formatDate(dailySalesDate)} - RM${totalAmount.toFixed(2)}`, `Record ID: ${newDailySales.id}`);
   
   showToast("Daily sales record saved successfully", "success");
   showPage('dailySales');
@@ -4591,7 +4710,7 @@ function closeDailySales(index) {
   dailySales[index].closedAt = new Date().toISOString();
   
   saveData();
-  logActivity(`Closed daily sales record: ${dailySales[index].date}`);
+  logActivity(`Closed daily sales record: ${dailySales[index].date}`, `Record ID: ${dailySales[index].id}`);
   
   showToast("Daily sales record closed successfully", "success");
   showPage('dailySales');
@@ -4607,7 +4726,7 @@ function reopenDailySales(index) {
   delete dailySales[index].closedAt;
   
   saveData();
-  logActivity(`Reopened daily sales record: ${dailySales[index].date}`);
+  logActivity(`Reopened daily sales record: ${dailySales[index].date}`, `Record ID: ${dailySales[index].id}`);
   
   showToast("Daily sales record reopened successfully", "warning");
   showPage('dailySales');
@@ -4631,7 +4750,7 @@ function adjustBankRecord(index) {
     const oldAmount = bankRecord.amount;
     bankRecord.amount = parseFloat(newAmount);
     saveData();
-    logActivity(`Adjusted bank record ${bankRecord.id} from RM${oldAmount.toFixed(2)} to RM${bankRecord.amount.toFixed(2)}`);
+    logActivity(`Adjusted bank record ${bankRecord.id} from RM${oldAmount.toFixed(2)} to RM${bankRecord.amount.toFixed(2)}`, `Record ID: ${bankRecord.id}`);
     showToast("Bank record adjusted successfully", "success");
     showPage('bankRecords');
   }
@@ -4656,23 +4775,23 @@ function adjustBankRecordEntry(index) {
       <div class="modal-body">
         <div class="form-group">
           <label>ID</label>
-          <input type="text" value="${bankRecord.id}" readonly>
+          <input type="text" value="${bankRecord.id}" readonly class="form-control">
         </div>
         <div class="form-group">
           <label>Date</label>
-          <input type="date" id="adjustBrDate" value="${bankRecord.date}">
+          <input type="date" id="adjustBrDate" value="${bankRecord.date}" class="form-control">
         </div>
         <div class="form-group">
           <label>Transaction ID</label>
-          <input type="text" id="adjustBrTransactionId" value="${bankRecord.transactionId}">
+          <input type="text" id="adjustBrTransactionId" value="${bankRecord.transactionId}" class="form-control">
         </div>
         <div class="form-group">
           <label>Amount (RM)</label>
-          <input type="number" id="adjustBrAmount" value="${bankRecord.amount}" step="0.01" min="0">
+          <input type="number" id="adjustBrAmount" value="${bankRecord.amount}" step="0.01" min="0" class="form-control">
         </div>
         <div class="form-group">
           <label>Payment Method</label>
-          <select id="adjustBrPaymentMethod">
+          <select id="adjustBrPaymentMethod" class="form-control">
             <option value="Bank Transfer" ${bankRecord.paymentMethod === 'Bank Transfer' ? 'selected' : ''}>Bank Transfer</option>
             <option value="Cash" ${bankRecord.paymentMethod === 'Cash' ? 'selected' : ''}>Cash</option>
             <option value="Credit Card" ${bankRecord.paymentMethod === 'Credit Card' ? 'selected' : ''}>Credit Card</option>
@@ -4681,11 +4800,11 @@ function adjustBankRecordEntry(index) {
         </div>
         <div class="form-group">
           <label>Cashbill ID</label>
-          <input type="text" id="adjustBrCashbillId" value="${bankRecord.cashbillId || ''}">
+          <input type="text" id="adjustBrCashbillId" value="${bankRecord.cashbillId || ''}" class="form-control">
         </div>
         <div class="form-group">
           <label>Status</label>
-          <select id="adjustBrStatus">
+          <select id="adjustBrStatus" class="form-control">
             <option value="Confirmed" ${bankRecord.status === 'Confirmed' ? 'selected' : ''}>Confirmed</option>
             <option value="Pending" ${bankRecord.status === 'Pending' ? 'selected' : ''}>Pending</option>
             <option value="Rejected" ${bankRecord.status === 'Rejected' ? 'selected' : ''}>Rejected</option>
@@ -4734,7 +4853,7 @@ function saveAdjustedBankRecord(index) {
   bankRecord.status = status;
   
   saveData();
-  logActivity(`Adjusted bank record ${bankRecord.id}: ${JSON.stringify(oldValues)} to ${JSON.stringify({
+  logActivity(`Adjusted bank record ${bankRecord.id}`, `Changed from ${JSON.stringify(oldValues)} to ${JSON.stringify({
     date, transactionId, amount, paymentMethod, cashbillId, status
   })}`);
   
@@ -4767,23 +4886,23 @@ function adjustCashbill(index) {
       <div class="modal-body">
         <div class="form-group">
           <label>ID</label>
-          <input type="text" value="${cashbill.id}" readonly>
+          <input type="text" value="${cashbill.id}" readonly class="form-control">
         </div>
         <div class="form-group">
           <label>Customer Name</label>
-          <input type="text" id="adjustCbCustomer" value="${cashbill.customerName}">
+          <input type="text" id="adjustCbCustomer" value="${cashbill.customerName}" class="form-control">
         </div>
         <div class="form-group">
           <label>Date</label>
-          <input type="date" id="adjustCbDate" value="${cashbill.date}">
+          <input type="date" id="adjustCbDate" value="${cashbill.date}" class="form-control">
         </div>
         <div class="form-group">
           <label>Discount (RM)</label>
-          <input type="number" id="adjustCbDiscount" value="${cashbill.discount || 0}" step="0.01" min="0">
+          <input type="number" id="adjustCbDiscount" value="${cashbill.discount || 0}" step="0.01" min="0" class="form-control">
         </div>
         <div class="form-group">
           <label>Payment Method</label>
-          <select id="adjustCbPaymentMethod">
+          <select id="adjustCbPaymentMethod" class="form-control">
             <option value="Cash" ${cashbill.paymentMethod === 'Cash' ? 'selected' : ''}>Cash</option>
             <option value="Bank Transfer" ${cashbill.paymentMethod === 'Bank Transfer' ? 'selected' : ''}>Bank Transfer</option>
             <option value="Credit Card" ${cashbill.paymentMethod === 'Credit Card' ? 'selected' : ''}>Credit Card</option>
@@ -4792,14 +4911,14 @@ function adjustCashbill(index) {
         </div>
         <div class="form-group">
           <label>Status</label>
-          <select id="adjustCbStatus">
+          <select id="adjustCbStatus" class="form-control">
             <option value="Draft" ${cashbill.status === 'Draft' ? 'selected' : ''}>Draft</option>
             <option value="Committed" ${cashbill.status === 'Committed' ? 'selected' : ''}>Committed</option>
           </select>
         </div>
         <div class="form-group">
           <label>Notes</label>
-          <textarea id="adjustCbNotes">${cashbill.notes || ''}</textarea>
+          <textarea id="adjustCbNotes" class="form-control">${cashbill.notes || ''}</textarea>
         </div>
       </div>
       <div class="modal-footer">
@@ -4848,7 +4967,7 @@ function saveAdjustedCashbill(index) {
   cashbill.totalAmount = subtotal - discount;
   
   saveData();
-  logActivity(`Adjusted cashbill ${cashbill.id}: ${JSON.stringify(oldValues)} to ${JSON.stringify({
+  logActivity(`Adjusted cashbill ${cashbill.id}`, `Changed from ${JSON.stringify(oldValues)} to ${JSON.stringify({
     customerName, date, discount, paymentMethod, status, notes
   })}`);
   
@@ -4921,7 +5040,7 @@ function commitCashbill(index) {
   }
   
   saveData();
-  logActivity(`Committed cashbill: ${cashbill.customerName}`);
+  logActivity(`Committed cashbill: ${cashbill.customerName}`, `Cashbill ID: ${cashbill.id}`);
   
   showToast("Cashbill committed successfully", "success");
   showPage('cashbills');
@@ -4956,7 +5075,7 @@ function uncommitCashbill(index) {
   }
   
   saveData();
-  logActivity(`Uncommitted cashbill: ${cashbill.customerName}`);
+  logActivity(`Uncommitted cashbill: ${cashbill.customerName}`, `Cashbill ID: ${cashbill.id}`);
   
   showToast("Cashbill uncommitted successfully", "warning");
   showPage('cashbills');
@@ -4984,7 +5103,7 @@ function deleteCashbill(index) {
   
   cashbills.splice(index, 1);
   saveData();
-  logActivity(`Deleted cashbill: ${cashbill.customerName}`);
+  logActivity(`Deleted cashbill: ${cashbill.customerName}`, `Cashbill ID: ${cashbill.id}`);
   showToast("Cashbill deleted", "success");
   showPage("cashbills");
 }
@@ -4999,7 +5118,7 @@ function deleteInventory(index) {
   const item = inventory[index];
   inventory.splice(index, 1);
   saveData();
-  logActivity(`Deleted inventory item: ${item.name}`);
+  logActivity(`Deleted inventory item: ${item.name}`, `Item ID: ${item.id}`);
   showToast("Item deleted", "success");
   showPage("inventory");
 }
@@ -5014,7 +5133,7 @@ function deleteLog(index) {
   const entry = logbook[index];
   logbook.splice(index, 1);
   saveData();
-  logActivity(`Deleted logbook entry: ${entry.entry.substring(0, 50)}...`);
+  logActivity(`Deleted logbook entry: ${entry.entry.substring(0, 50)}...`, `Entry date: ${entry.date}`);
   showToast("Log entry deleted", "success");
   showPage("logbook");
 }
@@ -5029,7 +5148,7 @@ function deleteCourier(index) {
   const entry = courier[index];
   courier.splice(index, 1);
   saveData();
-  logActivity(`Deleted courier entry: ${entry.trackingNumber}`);
+  logActivity(`Deleted courier entry: ${entry.trackingNumber}`, `Entry date: ${entry.date}`);
   showToast("Courier entry deleted", "success");
   showPage("courier");
 }
@@ -5044,7 +5163,7 @@ function deleteUser(index) {
   const user = users[index];
   users.splice(index, 1);
   saveData();
-  logActivity(`Deleted user: ${user.name}`);
+  logActivity(`Deleted user: ${user.name}`, `User ID: ${user.id}`);
   showToast("User deleted", "success");
   showPage("users");
 }
@@ -5059,7 +5178,7 @@ function deleteDailySales(index) {
   const record = dailySales[index];
   dailySales.splice(index, 1);
   saveData();
-  logActivity(`Deleted daily sales record: ${record.date}`);
+  logActivity(`Deleted daily sales record: ${record.date}`, `Record ID: ${record.id}`);
   showToast("Daily sales record deleted", "success");
   showPage("dailySales");
 }
@@ -5074,7 +5193,7 @@ function deleteBankRecord(index) {
   const record = bankRecords[index];
   bankRecords.splice(index, 1);
   saveData();
-  logActivity(`Deleted bank record: ${record.id}`);
+  logActivity(`Deleted bank record: ${record.id}`, `Transaction ID: ${record.transactionId}`);
   showToast("Bank record deleted", "success");
   showPage("bankRecords");
 }
@@ -5247,7 +5366,7 @@ function filterUsers() {
 }
 function filterActivity() {
   const searchTerm = document.getElementById("activitySearch").value.toLowerCase();
-  const items = document.querySelectorAll(".activity-item");
+  const items = document.querySelectorAll(".activity-log-item");
   
   items.forEach(item => {
     const text = item.textContent.toLowerCase();
@@ -5271,11 +5390,14 @@ function filterActivityByDate() {
   // Update the list with filtered results
   const container = document.querySelector(".activity-log");
   container.innerHTML = filteredActivity.map((activity, i) => `
-    <div class="activity-item">
-      <div>
-        <strong>${activity.user}</strong>: ${activity.action}
+    <div class="activity-log-item">
+      <div class="activity-log-item-header">
+        <div class="activity-log-item-user">${activity.user}</div>
+        <div class="activity-log-item-time">${formatDate(activity.timestamp)}</div>
       </div>
-      <div class="activity-time">${formatDate(activity.timestamp)}</div>
+      <div class="activity-log-item-action">${activity.action}</div>
+      ${activity.details ? `<div class="activity-log-item-details">${activity.details}</div>` : ""}
+      ${activity.isPasswordChange ? `<div class="activity-log-item-password"><i class="fas fa-key"></i> Password change detected</div>` : ""}
     </div>
   `).join("");
   
@@ -5532,12 +5654,12 @@ function clearData() {
   logbook = [];
   courier = [];
   users = [
-    {id:"001",name:"Danial",role:"admin", jobTitle:"IT", lastLogin: null, isActive: true},
-    {id:"002",name:"Demo Admin",role:"admin", jobTitle:"System Administrator", lastLogin: null, isActive: true},
-    {id:"003",name:"Aidawati",role:"admin", jobTitle:"Business Director", lastLogin: null, isActive: true},
-    {id:"004",name:"Business Manager",role:"admin", jobTitle:"Business Manager", lastLogin: null, isActive: true},
-    {id:"005",name:"Marcomm Manager",role:"admin", jobTitle:"Marcomm Manager", lastLogin: null, isActive: true},
-    {id:"006",name:"Demo User",role:"user", jobTitle:"Demo User", lastLogin: null, isActive: true}
+    {id:"001",name:"Danial",role:"IT", jobTitle:"IT", lastLogin: null},
+    {id:"002",name:"Demo Admin",role:"admin", jobTitle:"Admin", lastLogin: null},
+    {id:"003",name:"Aidawati",role:"Business Director", jobTitle:"Business Director", lastLogin: null},
+    {id:"004",name:"Putri",role:"Business Manager", jobTitle:"Business Manager", lastLogin: null},
+    {id:"005",name:"Farah",role:"Marcomm Manager", jobTitle:"Marcomm Manager", lastLogin: null},
+    {id:"006",name:"Demo User",role:"DemoUser", jobTitle:"DemoUser", lastLogin: null}
   ];
   activityLog = [];
   dailySales = [];
@@ -5838,13 +5960,15 @@ function downloadCSV(csv, filename) {
   a.click();
   document.body.removeChild(a);
 }
-function logActivity(action) {
+function logActivity(action, details = "", isPasswordChange = false) {
   if (!currentUser) return;
   
   activityLog.push({
     user: currentUser.name,
     action: action,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    details: details,
+    isPasswordChange: isPasswordChange || false
   });
   
   // Keep only the last 1000 activities
