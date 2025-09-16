@@ -900,6 +900,26 @@
             width: 70px;
             margin-left: 10px;
         }
+        /* Bank Records */
+        .bank-record-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--light-bg);
+            border-radius: var(--radius);
+        }
+        .bank-record-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .bank-record-summary-row.total {
+            font-weight: 600;
+            font-size: 18px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-color);
+        }
     </style>
 </head>
 <body>
@@ -954,9 +974,9 @@
                     <i class="fas fa-file-invoice-dollar"></i>
                     <span>Cashbill</span>
                 </a>
-                <a href="#" class="menu-item" data-page="sales">
-                    <i class="fas fa-cash-register"></i>
-                    <span>Sales Records</span>
+                <a href="#" class="menu-item" data-page="bankRecords">
+                    <i class="fas fa-university"></i>
+                    <span>Bank Records</span>
                 </a>
                 <a href="#" class="menu-item" data-page="inventory">
                     <i class="fas fa-boxes"></i>
@@ -1146,13 +1166,21 @@
                                     <div class="form-col">
                                         <div class="form-group">
                                             <label for="cashbillCustomerName">Customer Name</label>
-                                            <input type="text" id="cashbillCustomerName" class="form-control" placeholder="Enter customer name">
+                                            <input type="text" id="cashbillCustomerName" class="form-control" placeholder="Enter customer name" required>
                                         </div>
                                     </div>
                                     <div class="form-col">
                                         <div class="form-group">
                                             <label for="cashbillCustomerPhone">Customer Phone</label>
-                                            <input type="tel" id="cashbillCustomerPhone" class="form-control" placeholder="Enter customer phone">
+                                            <input type="tel" id="cashbillCustomerPhone" class="form-control" placeholder="Enter customer phone" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="cashbillCustomerEmail">Customer Email (Optional)</label>
+                                            <input type="email" id="cashbillCustomerEmail" class="form-control" placeholder="Enter customer email">
                                         </div>
                                     </div>
                                 </div>
@@ -1226,6 +1254,11 @@
                                     </select>
                                 </div>
                                 
+                                <div class="form-group">
+                                    <label for="cashbillRemarks">Remarks (Internal Use)</label>
+                                    <textarea id="cashbillRemarks" class="form-control" rows="2" placeholder="Enter internal remarks"></textarea>
+                                </div>
+                                
                                 <div class="form-actions">
                                     <div class="form-actions-left">
                                         <button type="button" class="btn btn-danger" id="deleteCashbillBtn">
@@ -1245,36 +1278,31 @@
                         </div>
                     </div>
                 </div>
-                <!-- Sales Records Page -->
-                <div id="salesPage" class="page" style="display: none;">
+                <!-- Bank Records Page -->
+                <div id="bankRecordsPage" class="page" style="display: none;">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">Sales Records</div>
-                            <div>
-                                <button class="btn" id="exportSalesBtn">
-                                    <i class="fas fa-file-csv"></i> Export CSV
-                                </button>
-                                <button class="btn" id="printSalesBtn">
-                                    <i class="fas fa-print"></i> Print
-                                </button>
-                            </div>
+                            <div class="card-title">Bank Records</div>
+                            <button class="btn" id="createBankRecordBtn">
+                                <i class="fas fa-plus"></i> Create Bank Record
+                            </button>
                         </div>
                         <div class="card-body">
                             <div class="table-container">
-                                <table class="table" id="salesTable">
+                                <table class="table" id="bankRecordsTable">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Date</th>
-                                            <th>Customer</th>
-                                            <th>Items</th>
-                                            <th>Total (RM)</th>
-                                            <th>Payment</th>
+                                            <th>Opening Amount (RM)</th>
+                                            <th>Closing Amount (RM)</th>
+                                            <th>Expected Amount (RM)</th>
+                                            <th>Difference (RM)</th>
+                                            <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="salesTableBody">
-                                        <!-- Sales data will be inserted here -->
+                                    <tbody id="bankRecordsTableBody">
+                                        <!-- Bank records data will be inserted here -->
                                     </tbody>
                                 </table>
                             </div>
@@ -1514,7 +1542,7 @@
                 <form id="crewForm">
                     <div class="form-group">
                         <label for="crewIdInput">Crew ID</label>
-                        <input type="text" id="crewIdInput" class="form-control" required>
+                        <input type="text" id="crewIdInput" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for="crewNameInput">Name</label>
@@ -1563,15 +1591,23 @@
                 <form id="itemForm">
                     <div class="form-group">
                         <label for="itemStockCodeInput">Stock Code</label>
-                        <input type="text" id="itemStockCodeInput" class="form-control" required>
+                        <input type="text" id="itemStockCodeInput" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemCategoryInput">Category</label>
+                        <select id="itemCategoryInput" class="form-control" required>
+                            <option value="">Select Category</option>
+                            <option value="CLTH">Clothes</option>
+                            <option value="ACCS">Accessories</option>
+                            <option value="ELEC">Electronics</option>
+                            <option value="FOOD">Food</option>
+                            <option value="HOME">Home</option>
+                            <option value="OTHER">Other</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="itemNameInput">Name</label>
                         <input type="text" id="itemNameInput" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="itemCategoryInput">Category</label>
-                        <input type="text" id="itemCategoryInput" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="itemPriceInput">Price (RM)</label>
@@ -1703,6 +1739,46 @@
             </div>
         </div>
     </div>
+    <!-- Bank Record Modal -->
+    <div class="modal" id="bankRecordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="bankRecordModalTitle">Create Bank Record</div>
+                <button class="modal-close" id="closeBankRecordModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="bankRecordForm">
+                    <div class="form-group">
+                        <label for="bankRecordDate">Date</label>
+                        <input type="date" id="bankRecordDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bankRecordOpeningAmount">Opening Amount (RM)</label>
+                        <input type="number" id="bankRecordOpeningAmount" class="form-control" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group" id="bankRecordClosingGroup" style="display: none;">
+                        <label for="bankRecordClosingAmount">Closing Amount (RM)</label>
+                        <input type="number" id="bankRecordClosingAmount" class="form-control" step="0.01" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Expected Amount (RM)</label>
+                        <input type="text" id="bankRecordExpectedAmount" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Difference (RM)</label>
+                        <input type="text" id="bankRecordDifference" class="form-control" readonly>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelBankRecordBtn">Cancel</button>
+                <button class="btn btn-success" id="saveBankRecordBtn">Save Opening</button>
+                <button class="btn btn-warning" id="closeBankRecordBtn" style="display: none;">Close Day</button>
+            </div>
+        </div>
+    </div>
     <!-- Confirmation Modal -->
     <div class="modal" id="confirmModal">
         <div class="modal-content">
@@ -1728,20 +1804,21 @@
             crew: [
                 { id: '001', name: 'Danial Danish', jobTitle: 'IT Admin', password: 'dd', accessLevel: 'admin', reportsTo: '002' },
                 { id: '002', name: 'Aidawati', jobTitle: 'Business Director', password: 'aida', accessLevel: 'superior', reportsTo: '' },
-                { id: '003', name: 'Putri Erinna', jobTitle: 'Business Manager', password: 'putri', accessLevel: 'superior', reportsTo: '002' },
-                { id: '004', name: 'Farah Elyanna', jobTitle: 'Marcomm Manager', password: 'farah', accessLevel: 'superior', reportsTo: '002' }
+                { id: '003', name: 'Putri Erinna', jobTitle: 'Business Manager', password: 'putri', accessLevel: 'superior', reportsTo: '001' },
+                { id: '004', name: 'Farah Elyanna', jobTitle: 'Marcomm Manager', password: 'farah', accessLevel: 'superior', reportsTo: '001' }
             ],
             inventory: [
-                { stockCode: 'SKU001', name: 'Product A', category: 'Electronics', price: 99.99, quantity: 50, createdBy: '001', createdAt: new Date().toISOString() },
-                { stockCode: 'SKU002', name: 'Product B', category: 'Clothing', price: 49.99, quantity: 25, createdBy: '001', createdAt: new Date().toISOString() },
-                { stockCode: 'SKU003', name: 'Product C', category: 'Home', price: 29.99, quantity: 10, createdBy: '001', createdAt: new Date().toISOString() },
-                { stockCode: 'SKU004', name: 'Product D', category: 'Electronics', price: 199.99, quantity: 5, createdBy: '001', createdAt: new Date().toISOString() },
-                { stockCode: 'SKU005', name: 'Product E', category: 'Food', price: 9.99, quantity: 0, createdBy: '001', createdAt: new Date().toISOString() }
+                { stockCode: 'SKU-CLTH-0001', name: 'ROBE', category: 'CLTH', price: 99.99, quantity: 50, createdBy: '001', createdAt: new Date().toISOString() },
+                { stockCode: 'SKU-ACCS-0001', name: 'MEDAL', category: 'ACCS', price: 49.99, quantity: 25, createdBy: '001', createdAt: new Date().toISOString() },
+                { stockCode: 'SKU-ELEC-0001', name: 'Product C', category: 'ELEC', price: 29.99, quantity: 10, createdBy: '001', createdAt: new Date().toISOString() },
+                { stockCode: 'SKU-CLTH-0002', name: 'Product D', category: 'CLTH', price: 199.99, quantity: 5, createdBy: '001', createdAt: new Date().toISOString() },
+                { stockCode: 'SKU-FOOD-0001', name: 'Product E', category: 'FOOD', price: 9.99, quantity: 0, createdBy: '001', createdAt: new Date().toISOString() }
             ],
             sales: [],
             cashbills: [],
             couriers: [],
             logbook: [],
+            bankRecords: [],
             auditLogs: [],
             settings: {
                 theme: 'light',
@@ -1788,6 +1865,9 @@
             const savedLogbook = localStorage.getItem('pneLogbook');
             if (savedLogbook) app.logbook = JSON.parse(savedLogbook);
             
+            const savedBankRecords = localStorage.getItem('pneBankRecords');
+            if (savedBankRecords) app.bankRecords = JSON.parse(savedBankRecords);
+            
             const savedAuditLogs = localStorage.getItem('pneAuditLogs');
             if (savedAuditLogs) app.auditLogs = JSON.parse(savedAuditLogs);
             
@@ -1813,6 +1893,7 @@
             localStorage.setItem('pneCashbills', JSON.stringify(app.cashbills));
             localStorage.setItem('pneCouriers', JSON.stringify(app.couriers));
             localStorage.setItem('pneLogbook', JSON.stringify(app.logbook));
+            localStorage.setItem('pneBankRecords', JSON.stringify(app.bankRecords));
             localStorage.setItem('pneAuditLogs', JSON.stringify(app.auditLogs));
             localStorage.setItem('pneSettings', JSON.stringify(app.settings));
         }
@@ -1914,9 +1995,12 @@
             document.getElementById('cancelInventorySelectBtn').addEventListener('click', () => closeModal('inventorySelectModal'));
             document.getElementById('closeInventorySelectModal').addEventListener('click', () => closeModal('inventorySelectModal'));
             
-            // Sales management
-            document.getElementById('exportSalesBtn').addEventListener('click', exportSales);
-            document.getElementById('printSalesBtn').addEventListener('click', printSales);
+            // Bank records
+            document.getElementById('createBankRecordBtn').addEventListener('click', () => openBankRecordModal());
+            document.getElementById('saveBankRecordBtn').addEventListener('click', saveBankRecord);
+            document.getElementById('closeBankRecordBtn').addEventListener('click', closeBankRecord);
+            document.getElementById('cancelBankRecordBtn').addEventListener('click', () => closeModal('bankRecordModal'));
+            document.getElementById('closeBankRecordModal').addEventListener('click', () => closeModal('bankRecordModal'));
             
             // Courier management
             document.getElementById('addCourierBtn').addEventListener('click', () => openCourierModal());
@@ -2064,7 +2148,7 @@
                 crew: 'Crew Management',
                 cashbillList: 'Cashbill',
                 cashbillForm: 'Cashbill Form',
-                sales: 'Sales Records',
+                bankRecords: 'Bank Records',
                 inventory: 'Inventory',
                 courier: 'Courier',
                 logbookList: 'Logbook',
@@ -2089,8 +2173,8 @@
                 case 'cashbillForm':
                     loadCashbillForm();
                     break;
-                case 'sales':
-                    loadSalesManagement();
+                case 'bankRecords':
+                    loadBankRecords();
                     break;
                 case 'inventory':
                     loadInventoryManagement();
@@ -2299,7 +2383,7 @@
                 headLevel.appendChild(createOrgNode(head, false));
                 orgChart.appendChild(headLevel);
                 
-                // Add subordinates (Danial, Putri, Farah)
+                // Add subordinates (Danial)
                 const subordinates = getSubordinates(head.id);
                 if (subordinates.length > 0) {
                     const subLevel = document.createElement('div');
@@ -2308,7 +2392,7 @@
                     subordinates.forEach(sub => {
                         subLevel.appendChild(createOrgNode(sub, false));
                         
-                        // Add sub-subordinates
+                        // Add sub-subordinates (Putri and Farah under Danial)
                         const subSubordinates = getSubordinates(sub.id);
                         if (subSubordinates.length > 0) {
                             const subSubLevel = document.createElement('div');
@@ -2316,6 +2400,19 @@
                             
                             subSubordinates.forEach(subSub => {
                                 subSubLevel.appendChild(createOrgNode(subSub, false));
+                                
+                                // Add sub-sub-subordinates (new crew under Farah)
+                                const subSubSubordinates = getSubordinates(subSub.id);
+                                if (subSubSubordinates.length > 0) {
+                                    const subSubSubLevel = document.createElement('div');
+                                    subSubSubLevel.className = 'org-level';
+                                    
+                                    subSubSubordinates.forEach(subSubSub => {
+                                        subSubSubLevel.appendChild(createOrgNode(subSubSub, false));
+                                    });
+                                    
+                                    orgChart.appendChild(subSubSubLevel);
+                                }
                             });
                             
                             orgChart.appendChild(subSubLevel);
@@ -2396,7 +2493,6 @@
                 if (crew) {
                     modalTitle.textContent = 'Edit Crew Member';
                     document.getElementById('crewIdInput').value = crew.id;
-                    document.getElementById('crewIdInput').disabled = true;
                     document.getElementById('crewNameInput').value = crew.name;
                     document.getElementById('crewJobTitleInput').value = crew.jobTitle;
                     document.getElementById('crewPasswordInput').value = crew.password;
@@ -2406,7 +2502,13 @@
             } else {
                 // Add mode
                 modalTitle.textContent = 'Add Crew Member';
-                document.getElementById('crewIdInput').disabled = false;
+                
+                // Generate next crew ID
+                const highestId = app.crew.length > 0 
+                    ? Math.max(...app.crew.map(crew => parseInt(crew.id))) 
+                    : 0;
+                const nextId = String(highestId + 1).padStart(3, '0');
+                document.getElementById('crewIdInput').value = nextId;
             }
             
             modal.classList.add('active');
@@ -2432,19 +2534,6 @@
                 return;
             }
             
-            // Auto-assign reports to based on job title for new crew
-            let autoReportsTo = reportsTo;
-            if (!document.getElementById('crewIdInput').disabled && !reportsTo) {
-                const jobTitleLower = jobTitle.toLowerCase();
-                if (jobTitleLower.includes('it') || jobTitleLower.includes('technical') || jobTitleLower.includes('developer')) {
-                    // IT-related jobs report to Danial (001)
-                    autoReportsTo = '001';
-                } else {
-                    // Non-IT jobs report to Farah (004)
-                    autoReportsTo = '004';
-                }
-            }
-            
             if (document.getElementById('crewIdInput').disabled) {
                 // Update existing crew
                 const crewIndex = app.crew.findIndex(c => c.id === crewId);
@@ -2455,7 +2544,7 @@
                         jobTitle,
                         password,
                         accessLevel,
-                        reportsTo: autoReportsTo
+                        reportsTo
                     };
                     
                     addAuditLog('Update Crew', `Crew member ${name} updated`);
@@ -2469,7 +2558,7 @@
                     jobTitle,
                     password,
                     accessLevel,
-                    reportsTo: autoReportsTo
+                    reportsTo
                 });
                 
                 addAuditLog('Add Crew', `New crew member ${name} added`);
@@ -2548,7 +2637,7 @@
                 headLevel.appendChild(createOrgNode(head, true));
                 orgChart.appendChild(headLevel);
                 
-                // Add subordinates (Danial, Putri, Farah)
+                // Add subordinates (Danial)
                 const subordinates = getSubordinates(head.id);
                 if (subordinates.length > 0) {
                     const subLevel = document.createElement('div');
@@ -2557,7 +2646,7 @@
                     subordinates.forEach(sub => {
                         subLevel.appendChild(createOrgNode(sub, true));
                         
-                        // Add sub-subordinates
+                        // Add sub-subordinates (Putri and Farah under Danial)
                         const subSubordinates = getSubordinates(sub.id);
                         if (subSubordinates.length > 0) {
                             const subSubLevel = document.createElement('div');
@@ -2565,6 +2654,19 @@
                             
                             subSubordinates.forEach(subSub => {
                                 subSubLevel.appendChild(createOrgNode(subSub, true));
+                                
+                                // Add sub-sub-subordinates (new crew under Farah)
+                                const subSubSubordinates = getSubordinates(subSub.id);
+                                if (subSubSubordinates.length > 0) {
+                                    const subSubSubLevel = document.createElement('div');
+                                    subSubSubLevel.className = 'org-level';
+                                    
+                                    subSubSubordinates.forEach(subSubSub => {
+                                        subSubSubLevel.appendChild(createOrgNode(subSubSub, true));
+                                    });
+                                    
+                                    orgChart.appendChild(subSubSubLevel);
+                                }
                             });
                             
                             orgChart.appendChild(subSubLevel);
@@ -2652,6 +2754,8 @@
                 // Load cashbill data
                 document.getElementById('cashbillCustomerName').value = app.currentCashbill.customerName;
                 document.getElementById('cashbillCustomerPhone').value = app.currentCashbill.customerPhone;
+                document.getElementById('cashbillCustomerEmail').value = app.currentCashbill.customerEmail || '';
+                document.getElementById('cashbillRemarks').value = app.currentCashbill.remarks || '';
                 app.cashbillItems = [...app.currentCashbill.items];
                 renderCashbillItems();
                 calculateCashbillTotal();
@@ -2980,6 +3084,8 @@
         function saveCashbill(status) {
             const customerName = document.getElementById('cashbillCustomerName').value;
             const customerPhone = document.getElementById('cashbillCustomerPhone').value;
+            const customerEmail = document.getElementById('cashbillCustomerEmail').value;
+            const remarks = document.getElementById('cashbillRemarks').value;
             const paymentMethod = document.getElementById('cashbillPaymentMethod').value;
             
             if (!customerName || app.cashbillItems.length === 0) {
@@ -3009,6 +3115,8 @@
                         ...app.currentCashbill,
                         customerName,
                         customerPhone,
+                        customerEmail,
+                        remarks,
                         items: [...app.cashbillItems],
                         subtotal,
                         discount,
@@ -3024,12 +3132,14 @@
                 }
             } else {
                 // Create new cashbill
-                const cashbillId = 'CB' + String(app.cashbills.length + 1).padStart(4, '0');
+                const cashbillId = 'INV-PNE-' + String(app.cashbills.length + 1).padStart(4, '0');
                 
                 const cashbill = {
                     id: cashbillId,
                     customerName,
                     customerPhone,
+                    customerEmail,
+                    remarks,
                     items: [...app.cashbillItems],
                     subtotal,
                     discount,
@@ -3050,6 +3160,16 @@
                             inventoryItem.quantity -= item.quantity;
                         }
                     });
+                    
+                    // Update bank records
+                    const today = new Date().toISOString().split('T')[0];
+                    let bankRecord = app.bankRecords.find(br => br.date === today);
+                    
+                    if (bankRecord && bankRecord.status === 'open') {
+                        // Update expected amount
+                        bankRecord.expectedAmount += total;
+                        saveData();
+                    }
                 }
                 
                 addAuditLog('Create Cashbill', `Cashbill ${cashbillId} created`);
@@ -3138,120 +3258,184 @@
                 navigateToPage('cashbillList');
             });
         }
-        // Load sales management
-        function loadSalesManagement() {
-            loadSalesTable();
-        }
-        // Load sales table
-        function loadSalesTable() {
-            const salesTableBody = document.getElementById('salesTableBody');
-            salesTableBody.innerHTML = '';
+        // Load bank records
+        function loadBankRecords() {
+            const bankRecordsTableBody = document.getElementById('bankRecordsTableBody');
+            bankRecordsTableBody.innerHTML = '';
             
-            // Sort sales by date (newest first)
-            const sortedSales = [...app.sales].sort((a, b) => new Date(b.date) - new Date(a.date));
+            // Sort by date (newest first)
+            const sortedBankRecords = [...app.bankRecords].sort((a, b) => new Date(b.date) - new Date(a.date));
             
-            sortedSales.forEach(sale => {
+            sortedBankRecords.forEach(record => {
                 const row = document.createElement('tr');
                 
-                const date = new Date(sale.date).toLocaleString();
-                const itemsList = sale.items.map(item => `${item.name} (x${item.quantity})`).join(', ');
+                const difference = record.status === 'closed' ? record.closingAmount - record.expectedAmount : 0;
+                
+                let statusClass, statusText;
+                if (record.status === 'open') {
+                    statusClass = 'warning';
+                    statusText = 'Open';
+                } else {
+                    statusClass = difference === 0 ? 'success' : 'danger';
+                    statusText = difference === 0 ? 'Balanced' : 'Discrepancy';
+                }
                 
                 row.innerHTML = `
-                    <td>${sale.id}</td>
-                    <td>${date}</td>
-                    <td>${sale.customerName}</td>
-                    <td>${itemsList}</td>
-                    <td>RM ${sale.total.toFixed(2)}</td>
-                    <td>${sale.paymentMethod}</td>
+                    <td>${record.date}</td>
+                    <td>RM ${record.openingAmount.toFixed(2)}</td>
+                    <td>${record.status === 'closed' ? `RM ${record.closingAmount.toFixed(2)}` : '-'}</td>
+                    <td>RM ${record.expectedAmount.toFixed(2)}</td>
+                    <td>${record.status === 'closed' ? `RM ${difference.toFixed(2)}` : '-'}</td>
+                    <td><span class="status ${statusClass}">${statusText}</span></td>
                     <td>
-                        <button class="btn btn-sm btn-danger" onclick="deleteSale('${sale.id}')">
-                            <i class="fas fa-trash"></i>
+                        <button class="btn btn-sm" onclick="editBankRecord('${record.date}')">
+                            <i class="fas fa-edit"></i>
                         </button>
+                        ${record.status === 'open' ? `
+                        <button class="btn btn-sm btn-warning" onclick="closeBankRecordFromList('${record.date}')">
+                            <i class="fas fa-lock"></i>
+                        </button>
+                        ` : ''}
                     </td>
                 `;
                 
-                salesTableBody.appendChild(row);
+                bankRecordsTableBody.appendChild(row);
             });
         }
-        // Delete sale
-        function deleteSale(saleId) {
-            const sale = app.sales.find(s => s.id === saleId);
-            if (!sale) return;
+        // Open bank record modal
+        function openBankRecordModal(date = null) {
+            const modal = document.getElementById('bankRecordModal');
+            const modalTitle = document.getElementById('bankRecordModalTitle');
+            const form = document.getElementById('bankRecordForm');
             
-            // Show confirmation modal
-            showConfirmModal(`Are you sure you want to delete this sale? This will restore the stock.`, () => {
-                const saleIndex = app.sales.findIndex(s => s.id === saleId);
-                if (saleIndex !== -1) {
-                    // Restore inventory
-                    sale.items.forEach(item => {
-                        const inventoryItem = app.inventory.find(i => i.stockCode === item.stockCode);
-                        if (inventoryItem) {
-                            inventoryItem.quantity += item.quantity;
-                        }
-                    });
-                    
-                    // Remove sale
-                    app.sales.splice(saleIndex, 1);
-                    
-                    saveData();
-                    loadSalesTable();
-                    
-                    // Add log entry
-                    addLogEntry('Sale Deleted', `Sale ${saleId} deleted, stock restored`);
-                    
-                    // Add audit log
-                    addAuditLog('Delete Sale', `Sale ${saleId} deleted by ${app.currentUser.name}`);
-                    
-                    showToast('Sale deleted successfully', 'success');
-                }
-            });
-        }
-        // Export sales
-        function exportSales() {
-            let csv = 'ID,Date,Customer,Items,Subtotal,Discount,Total,Payment Method\n';
+            // Reset form
+            form.reset();
             
-            app.sales.forEach(sale => {
-                const date = new Date(sale.date).toLocaleString();
-                const itemsList = sale.items.map(item => `${item.name} (x${item.quantity})`).join('; ');
+            // Set today's date as default
+            if (!date) {
+                date = new Date().toISOString().split('T')[0];
+            }
+            
+            document.getElementById('bankRecordDate').value = date;
+            
+            // Check if record already exists
+            const existingRecord = app.bankRecords.find(br => br.date === date);
+            
+            if (existingRecord) {
+                modalTitle.textContent = 'Edit Bank Record';
+                document.getElementById('bankRecordOpeningAmount').value = existingRecord.openingAmount;
+                document.getElementById('bankRecordExpectedAmount').value = existingRecord.expectedAmount.toFixed(2);
                 
-                csv += `${sale.id},"${date}","${sale.customerName}","${itemsList}",${sale.subtotal},${sale.discount},${sale.total},${sale.paymentMethod}\n`;
-            });
+                if (existingRecord.status === 'closed') {
+                    document.getElementById('bankRecordClosingAmount').value = existingRecord.closingAmount;
+                    document.getElementById('bankRecordDifference').value = (existingRecord.closingAmount - existingRecord.expectedAmount).toFixed(2);
+                    document.getElementById('bankRecordClosingGroup').style.display = 'block';
+                    document.getElementById('saveBankRecordBtn').style.display = 'none';
+                    document.getElementById('closeBankRecordBtn').style.display = 'none';
+                } else {
+                    document.getElementById('bankRecordClosingGroup').style.display = 'block';
+                    document.getElementById('saveBankRecordBtn').style.display = 'none';
+                    document.getElementById('closeBankRecordBtn').style.display = 'inline-block';
+                }
+            } else {
+                modalTitle.textContent = 'Create Bank Record';
+                document.getElementById('bankRecordClosingGroup').style.display = 'none';
+                document.getElementById('saveBankRecordBtn').style.display = 'inline-block';
+                document.getElementById('closeBankRecordBtn').style.display = 'none';
+                
+                // Calculate expected amount from cashbills
+                const expectedAmount = app.cashbills
+                    .filter(cb => cb.status === 'committed' && cb.createdAt.startsWith(date))
+                    .reduce((sum, cb) => sum + cb.total, 0);
+                
+                document.getElementById('bankRecordExpectedAmount').value = expectedAmount.toFixed(2);
+            }
             
-            downloadCSV(csv, 'sales_records.csv');
-            
-            // Add audit log
-            addAuditLog('Export Data', 'Sales records exported by ' + app.currentUser.name);
-            
-            showToast('Sales data exported successfully', 'success');
+            modal.classList.add('active');
         }
-        // Print sales
-        function printSales() {
-            const printContent = document.getElementById('salesTable').outerHTML;
-            const printWindow = window.open('', '_blank');
+        // Save bank record
+        function saveBankRecord() {
+            const date = document.getElementById('bankRecordDate').value;
+            const openingAmount = parseFloat(document.getElementById('bankRecordOpeningAmount').value) || 0;
+            const closingAmount = parseFloat(document.getElementById('bankRecordClosingAmount').value) || 0;
+            const expectedAmount = parseFloat(document.getElementById('bankRecordExpectedAmount').value) || 0;
             
-            printWindow.document.write(`
-                <html>
-                <head>
-                    <title>Sales Records</title>
-                    <style>
-                        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-                        table { width: 100%; border-collapse: collapse; }
-                        th, td { border: 1px solid #d2d2d7; padding: 8px; text-align: left; }
-                        th { background-color: #fbfbfd; }
-                    </style>
-                </head>
-                <body>
-                    <h1>Sales Records</h1>
-                    ${printContent}
-                </body>
-                </html>
-            `);
+            if (!date || openingAmount < 0) {
+                showToast('Please fill all required fields with valid values', 'error');
+                return;
+            }
             
-            printWindow.document.close();
-            printWindow.print();
+            const existingRecord = app.bankRecords.find(br => br.date === date);
             
-            // Add audit log
-            addAuditLog('Print Data', 'Sales records printed by ' + app.currentUser.name);
+            if (existingRecord) {
+                // Update existing record
+                existingRecord.openingAmount = openingAmount;
+                
+                if (existingRecord.status === 'closed') {
+                    existingRecord.closingAmount = closingAmount;
+                }
+                
+                addAuditLog('Update Bank Record', `Bank record for ${date} updated`);
+                showToast('Bank record updated successfully', 'success');
+            } else {
+                // Create new record
+                app.bankRecords.push({
+                    date,
+                    openingAmount,
+                    closingAmount: 0,
+                    expectedAmount,
+                    status: 'open',
+                    createdBy: app.currentUser.id,
+                    createdAt: new Date().toISOString()
+                });
+                
+                addAuditLog('Create Bank Record', `Bank record for ${date} created`);
+                showToast('Bank record created successfully', 'success');
+            }
+            
+            saveData();
+            closeModal('bankRecordModal');
+            loadBankRecords();
+        }
+        // Close bank record
+        function closeBankRecord() {
+            const date = document.getElementById('bankRecordDate').value;
+            const closingAmount = parseFloat(document.getElementById('bankRecordClosingAmount').value) || 0;
+            const expectedAmount = parseFloat(document.getElementById('bankRecordExpectedAmount').value) || 0;
+            
+            if (closingAmount < 0) {
+                showToast('Closing amount must be a positive number', 'error');
+                return;
+            }
+            
+            const bankRecord = app.bankRecords.find(br => br.date === date);
+            
+            if (bankRecord) {
+                bankRecord.closingAmount = closingAmount;
+                bankRecord.status = 'closed';
+                bankRecord.closedBy = app.currentUser.id;
+                bankRecord.closedAt = new Date().toISOString();
+                
+                // Calculate and display difference
+                const difference = closingAmount - expectedAmount;
+                document.getElementById('bankRecordDifference').value = difference.toFixed(2);
+                
+                saveData();
+                closeModal('bankRecordModal');
+                loadBankRecords();
+                
+                addAuditLog('Close Bank Record', `Bank record for ${date} closed`);
+                showToast('Bank record closed successfully', 'success');
+            }
+        }
+        // Edit bank record
+        function editBankRecord(date) {
+            openBankRecordModal(date);
+        }
+        // Close bank record from list
+        function closeBankRecordFromList(date) {
+            openBankRecordModal(date);
+            // The close button will be visible in the modal
         }
         // Load inventory management
         function loadInventoryManagement() {
@@ -3281,7 +3465,7 @@
                 row.innerHTML = `
                     <td>${item.stockCode}</td>
                     <td>${item.name}</td>
-                    <td>${item.category}</td>
+                    <td>${getCategoryName(item.category)}</td>
                     <td>RM ${item.price.toFixed(2)}</td>
                     <td>${item.quantity}</td>
                     <td><span class="status ${statusClass}">${statusText}</span></td>
@@ -3298,6 +3482,18 @@
                 inventoryTableBody.appendChild(row);
             });
         }
+        // Get category name
+        function getCategoryName(categoryCode) {
+            const categories = {
+                'CLTH': 'Clothes',
+                'ACCS': 'Accessories',
+                'ELEC': 'Electronics',
+                'FOOD': 'Food',
+                'HOME': 'Home',
+                'OTHER': 'Other'
+            };
+            return categories[categoryCode] || categoryCode;
+        }
         // Load inventory analytics
         function loadInventoryAnalytics() {
             const ctx = document.getElementById('inventoryAnalyticsChart').getContext('2d');
@@ -3310,10 +3506,11 @@
             // Group inventory by category
             const categories = {};
             app.inventory.forEach(item => {
-                if (!categories[item.category]) {
-                    categories[item.category] = 0;
+                const categoryName = getCategoryName(item.category);
+                if (!categories[categoryName]) {
+                    categories[categoryName] = 0;
                 }
-                categories[item.category] += item.quantity;
+                categories[categoryName] += item.quantity;
             });
             
             // Create chart
@@ -3355,31 +3552,57 @@
                 if (item) {
                     modalTitle.textContent = 'Edit Item';
                     document.getElementById('itemStockCodeInput').value = item.stockCode;
-                    document.getElementById('itemStockCodeInput').disabled = true;
-                    document.getElementById('itemNameInput').value = item.name;
                     document.getElementById('itemCategoryInput').value = item.category;
+                    document.getElementById('itemNameInput').value = item.name;
                     document.getElementById('itemPriceInput').value = item.price;
                     document.getElementById('itemQuantityInput').value = item.quantity;
                 }
             } else {
                 // Add mode
                 modalTitle.textContent = 'Add Item';
-                document.getElementById('itemStockCodeInput').disabled = false;
+                
+                // Generate preview of next SKU
+                const category = document.getElementById('itemCategoryInput').value;
+                if (category) {
+                    const categoryItems = app.inventory.filter(item => item.stockCode.startsWith(`SKU-${category}-`));
+                    const nextNumber = categoryItems.length > 0 
+                        ? Math.max(...categoryItems.map(item => {
+                            const match = item.stockCode.match(/SKU-(\w+)-(\d+)/);
+                            return match ? parseInt(match[2]) : 0;
+                        })) + 1
+                        : 1;
+                    
+                    const nextSKU = `SKU-${category}-${String(nextNumber).padStart(4, '0')}`;
+                    document.getElementById('itemStockCodeInput').value = nextSKU;
+                }
             }
             
             modal.classList.add('active');
         }
         // Save item
         function saveItem() {
-            const stockCode = document.getElementById('itemStockCodeInput').value;
-            const name = document.getElementById('itemNameInput').value;
             const category = document.getElementById('itemCategoryInput').value;
+            const name = document.getElementById('itemNameInput').value.toUpperCase(); // Convert to uppercase
             const price = parseFloat(document.getElementById('itemPriceInput').value) || 0;
             const quantity = parseInt(document.getElementById('itemQuantityInput').value) || 0;
             
-            if (!stockCode || !name || !category || price <= 0 || quantity < 0) {
+            if (!category || !name || price <= 0 || quantity < 0) {
                 showToast('Please fill all required fields with valid values', 'error');
                 return;
+            }
+            
+            // Generate SKU if not editing
+            let stockCode = document.getElementById('itemStockCodeInput').value;
+            if (!stockCode) {
+                const categoryItems = app.inventory.filter(item => item.stockCode.startsWith(`SKU-${category}-`));
+                const nextNumber = categoryItems.length > 0 
+                    ? Math.max(...categoryItems.map(item => {
+                        const match = item.stockCode.match(/SKU-(\w+)-(\d+)/);
+                        return match ? parseInt(match[2]) : 0;
+                    })) + 1
+                    : 1;
+                
+                stockCode = `SKU-${category}-${String(nextNumber).padStart(4, '0')}`;
             }
             
             // Check if stock code already exists (for new items)
@@ -3398,8 +3621,8 @@
                     
                     app.inventory[itemIndex] = {
                         ...app.inventory[itemIndex],
-                        name,
                         category,
+                        name,
                         price,
                         quantity
                     };
@@ -3922,6 +4145,7 @@
                 cashbills: app.cashbills,
                 couriers: app.couriers,
                 logbook: app.logbook,
+                bankRecords: app.bankRecords,
                 auditLogs: app.auditLogs,
                 settings: app.settings,
                 backupDate: new Date().toISOString()
@@ -3959,6 +4183,7 @@
                         if (backup.cashbills) app.cashbills = backup.cashbills;
                         if (backup.couriers) app.couriers = backup.couriers;
                         if (backup.logbook) app.logbook = backup.logbook;
+                        if (backup.bankRecords) app.bankRecords = backup.bankRecords;
                         if (backup.auditLogs) app.auditLogs = backup.auditLogs;
                         if (backup.settings) app.settings = backup.settings;
                         
