@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PNE ARENA PORTAL</title>
+    <title>PNE ARENA PORTAL TEST</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -23,13 +23,6 @@
             --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
             --radius: 12px;
-            
-            /* Liquid Glass Theme Variables */
-            --glass-bg: rgba(255, 255, 255, 0.25);
-            --glass-border: rgba(255, 255, 255, 0.18);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-            --glass-blur: 4px;
-            --glass-hover: rgba(255, 255, 255, 0.35);
         }
         [data-theme="dark"] {
             --primary-color: #0a84ff;
@@ -39,12 +32,6 @@
             --text-primary: #ffffff;
             --text-secondary: #8e8e93;
             --border-color: #38383a;
-            
-            /* Dark theme glass adjustments */
-            --glass-bg: rgba(30, 30, 30, 0.25);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            --glass-hover: rgba(50, 50, 50, 0.35);
         }
         * {
             margin: 0;
@@ -58,36 +45,23 @@
             transition: var(--transition);
             font-size: 15px;
             line-height: 1.47059;
-            /* Liquid glass background */
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            background-attachment: fixed;
         }
-        [data-theme="dark"] body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        }
-        /* Login Screen with Glass Effect */
+        /* Login Screen */
         .login-container {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: transparent;
+            background-color: var(--white);
         }
         .login-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--white);
             border-radius: var(--radius);
             padding: 40px;
             width: 100%;
             max-width: 400px;
-            box-shadow: var(--glass-shadow);
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-            transform: translateY(0);
-        }
-        .login-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
         }
         .login-header {
             text-align: center;
@@ -98,9 +72,6 @@
             font-weight: 600;
             margin-bottom: 10px;
             letter-spacing: 0.5px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
         .login-header p {
             color: var(--text-secondary);
@@ -118,11 +89,10 @@
         .form-control {
             width: 100%;
             padding: 12px 16px;
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             font-size: 16px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--white);
             color: var(--text-primary);
             transition: var(--transition);
         }
@@ -130,78 +100,62 @@
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
-            background: var(--glass-hover);
         }
         .btn {
             display: inline-block;
             padding: 12px 24px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 980px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .btn:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-            z-index: -1;
-        }
-        .btn:hover:before {
-            transform: translateX(0);
+            border-radius: 980px;
         }
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.3);
+            background-color: #0077ed;
         }
         .btn-block {
             display: block;
             width: 100%;
         }
         .btn-danger {
-            background: linear-gradient(45deg, var(--danger-color), #ff625a);
+            background-color: var(--danger-color);
         }
         .btn-danger:hover {
-            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.3);
+            background-color: #d70015;
         }
         .btn-success {
-            background: linear-gradient(45deg, var(--success-color), #44d562);
+            background-color: var(--success-color);
         }
         .btn-success:hover {
-            box-shadow: 0 5px 15px rgba(52, 199, 89, 0.3);
+            background-color: #248a3d;
         }
         .btn-warning {
-            background: linear-gradient(45deg, var(--warning-color), #ffa633);
+            background-color: var(--warning-color);
         }
         .btn-warning:hover {
-            box-shadow: 0 5px 15px rgba(255, 149, 0, 0.3);
+            background-color: #cc7700;
         }
         .btn-secondary {
-            background: linear-gradient(45deg, var(--text-secondary), #a0a0a5);
+            background-color: var(--text-secondary);
+        }
+        .btn-secondary:hover {
+            background-color: #6e6e73;
         }
         .btn-outline {
-            background: transparent;
+            background-color: transparent;
             border: 1px solid var(--primary-color);
             color: var(--primary-color);
         }
         .btn-outline:hover {
-            background: var(--primary-color);
+            background-color: var(--primary-color);
             color: white;
         }
-        /* Main App Layout with Glass Effects */
+        /* Main App Layout */
         .app-container {
             display: none;
             min-height: 100vh;
@@ -212,20 +166,18 @@
             left: 0;
             height: 100vh;
             width: var(--sidebar-width);
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            border-right: 1px solid var(--glass-border);
+            background-color: var(--white);
+            border-right: 1px solid var(--border-color);
             z-index: 100;
             transition: var(--transition);
             overflow-y: auto;
-            box-shadow: var(--glass-shadow);
         }
         .sidebar.collapsed {
             width: 70px;
         }
         .sidebar-header {
             padding: 20px;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -255,33 +207,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
         }
         .sidebar-toggle:hover {
-            background: var(--glass-hover);
-            transform: rotate(90deg);
+            background-color: var(--light-bg);
         }
         .user-profile {
             padding: 20px;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
         .user-avatar {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background-color: var(--primary-color);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 10px;
             font-size: 24px;
-            box-shadow: 0 4px 10px rgba(0, 113, 227, 0.3);
-            transition: var(--transition);
-        }
-        .user-avatar:hover {
-            transform: scale(1.05);
         }
         .user-name {
             font-weight: 600;
@@ -308,28 +253,12 @@
             text-decoration: none;
             transition: var(--transition);
             border-left: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        .menu-item:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: rgba(0, 113, 227, 0.1);
-            transition: width 0.3s;
-            z-index: -1;
         }
         .menu-item:hover {
-            background: var(--glass-hover);
-        }
-        .menu-item:hover:before {
-            width: 100%;
+            background-color: var(--light-bg);
         }
         .menu-item.active {
-            background: rgba(0, 113, 227, 0.1);
+            background-color: rgba(0, 113, 227, 0.1);
             border-left-color: var(--primary-color);
             color: var(--primary-color);
         }
@@ -337,10 +266,6 @@
             margin-right: 10px;
             width: 20px;
             text-align: center;
-            transition: var(--transition);
-        }
-        .menu-item:hover i {
-            transform: translateX(3px);
         }
         .sidebar.collapsed .menu-item span {
             display: none;
@@ -361,9 +286,8 @@
             margin-left: 70px;
         }
         .header {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            border-bottom: 1px solid var(--glass-border);
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
             height: var(--header-height);
             display: flex;
             align-items: center;
@@ -372,7 +296,6 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            box-shadow: var(--glass-shadow);
         }
         .header-title {
             font-size: 20px;
@@ -391,22 +314,16 @@
             padding: 20px;
         }
         .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--white);
             border-radius: var(--radius);
-            box-shadow: var(--glass-shadow);
+            box-shadow: var(--shadow);
             margin-bottom: 20px;
             overflow: hidden;
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-        }
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
+            border: 1px solid var(--border-color);
         }
         .card-header {
             padding: 16px 20px;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -418,7 +335,7 @@
         .card-body {
             padding: 20px;
         }
-        /* Tables with Glass Effect */
+        /* Tables */
         .table-container {
             overflow-x: auto;
         }
@@ -430,22 +347,22 @@
         .table td {
             padding: 12px 16px;
             text-align: left;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--border-color);
         }
         .table th {
             font-weight: 600;
-            background: var(--glass-bg);
+            background-color: var(--light-bg);
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         .table tr:hover {
-            background: var(--glass-hover);
+            background-color: rgba(0, 113, 227, 0.05);
         }
         .table tr.selected {
-            background: rgba(0, 113, 227, 0.1);
+            background-color: rgba(0, 113, 227, 0.1);
         }
-        /* Forms with Glass Effect */
+        /* Forms */
         .form-row {
             display: flex;
             gap: 20px;
@@ -454,7 +371,7 @@
         .form-col {
             flex: 1;
         }
-        /* Toast Notifications with Glass Effect */
+        /* Toast Notifications */
         .toast-container {
             position: fixed;
             top: 20px;
@@ -462,8 +379,7 @@
             z-index: 1000;
         }
         .toast {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--white);
             border-radius: var(--radius);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             padding: 16px 20px;
@@ -472,8 +388,7 @@
             align-items: center;
             min-width: 300px;
             animation: slideIn 0.3s ease forwards;
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
+            border: 1px solid var(--border-color);
         }
         @keyframes slideIn {
             from {
@@ -507,7 +422,7 @@
         .toast.warning i {
             color: var(--warning-color);
         }
-        /* Dashboard with Glass Effect */
+        /* Dashboard */
         .dashboard-stats {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -515,17 +430,11 @@
             margin-bottom: 30px;
         }
         .stat-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--white);
             border-radius: var(--radius);
             padding: 20px;
-            box-shadow: var(--glass-shadow);
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-        }
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
         }
         .stat-icon {
             width: 50px;
@@ -536,25 +445,21 @@
             justify-content: center;
             font-size: 24px;
             margin-bottom: 15px;
-            transition: var(--transition);
-        }
-        .stat-icon:hover {
-            transform: scale(1.1);
         }
         .stat-icon.primary {
-            background: rgba(0, 113, 227, 0.1);
+            background-color: rgba(0, 113, 227, 0.1);
             color: var(--primary-color);
         }
         .stat-icon.success {
-            background: rgba(52, 199, 89, 0.1);
+            background-color: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         .stat-icon.warning {
-            background: rgba(255, 149, 0, 0.1);
+            background-color: rgba(255, 149, 0, 0.1);
             color: var(--warning-color);
         }
         .stat-icon.danger {
-            background: rgba(255, 59, 48, 0.1);
+            background-color: rgba(255, 59, 48, 0.1);
             color: var(--danger-color);
         }
         .stat-value {
@@ -566,7 +471,7 @@
             color: var(--text-secondary);
             font-size: 14px;
         }
-        /* Modal with Glass Effect */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -574,8 +479,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -584,16 +488,14 @@
             display: flex;
         }
         .modal-content {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--white);
             border-radius: var(--radius);
             width: 90%;
             max-width: 900px;
             max-height: 90vh;
             overflow-y: auto;
             animation: modalSlideIn 0.3s ease forwards;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 20px 60px 0 rgba(31, 38, 135, 0.3);
+            border: 1px solid var(--border-color);
         }
         @keyframes modalSlideIn {
             from {
@@ -607,7 +509,7 @@
         }
         .modal-header {
             padding: 20px;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -628,18 +530,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
         }
         .modal-close:hover {
-            background: var(--glass-hover);
-            transform: rotate(90deg);
+            background-color: var(--light-bg);
         }
         .modal-body {
             padding: 20px;
         }
         .modal-footer {
             padding: 20px;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid var(--border-color);
             display: flex;
             justify-content: flex-end;
             gap: 10px;
@@ -653,23 +553,23 @@
             font-weight: 500;
         }
         .status.in-stock {
-            background: rgba(52, 199, 89, 0.1);
+            background-color: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         .status.low-stock {
-            background: rgba(255, 149, 0, 0.1);
+            background-color: rgba(255, 149, 0, 0.1);
             color: var(--warning-color);
         }
         .status.out-of-stock {
-            background: rgba(255, 59, 48, 0.1);
+            background-color: rgba(255, 59, 48, 0.1);
             color: var(--danger-color);
         }
         .status.draft {
-            background: rgba(142, 142, 143, 0.1);
+            background-color: rgba(142, 142, 143, 0.1);
             color: var(--text-secondary);
         }
         .status.committed {
-            background: rgba(52, 199, 89, 0.1);
+            background-color: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         /* Role Indicators */
@@ -685,15 +585,15 @@
             margin-right: 5px;
         }
         .role-admin {
-            background: rgba(255, 59, 48, 0.1);
+            background-color: rgba(255, 59, 48, 0.1);
             color: var(--danger-color);
         }
         .role-superior {
-            background: rgba(255, 149, 0, 0.1);
+            background-color: rgba(255, 149, 0, 0.1);
             color: var(--warning-color);
         }
         .role-standard {
-            background: rgba(52, 199, 89, 0.1);
+            background-color: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         /* Responsive */
@@ -722,7 +622,7 @@
                 max-width: none;
             }
         }
-        /* Loading Spinner with Glass Effect */
+        /* Loading Spinner */
         .spinner {
             display: inline-block;
             width: 20px;
@@ -743,7 +643,7 @@
             height: 300px;
             margin-top: 20px;
         }
-        /* Organization Chart with Glass Effect */
+        /* Organization Chart */
         .org-chart {
             display: flex;
             flex-direction: column;
@@ -755,6 +655,19 @@
             justify-content: center;
             margin: 10px 0;
             width: 100%;
+            position: relative;
+        }
+        .org-level::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 1px;
+            height: 20px;
+            background-color: var(--border-color);
+        }
+        .org-level:first-child::before {
+            display: none;
         }
         .org-node {
             margin: 0 15px;
@@ -768,7 +681,7 @@
             left: 50%;
             width: 1px;
             height: 20px;
-            background-color: var(--glass-border);
+            background-color: var(--border-color);
         }
         .org-node::after {
             content: '';
@@ -777,19 +690,18 @@
             left: 0;
             right: 0;
             height: 1px;
-            background-color: var(--glass-border);
+            background-color: var(--border-color);
         }
         .org-level:first-child .org-node::before,
         .org-level:first-child .org-node::after {
             display: none;
         }
         .org-node-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--white);
             border-radius: var(--radius);
             padding: 15px;
-            box-shadow: var(--glass-shadow);
-            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
             min-width: 180px;
             transition: var(--transition);
         }
@@ -801,18 +713,13 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background-color: var(--primary-color);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 10px;
             font-size: 18px;
-            box-shadow: 0 4px 10px rgba(0, 113, 227, 0.3);
-            transition: var(--transition);
-        }
-        .org-node-avatar:hover {
-            transform: scale(1.05);
         }
         .org-node-name {
             font-weight: 600;
@@ -833,7 +740,139 @@
             padding: 5px 10px;
             font-size: 12px;
         }
-        /* Cashbill Form with Glass Effect */
+        /* Improved Organization Chart */
+        .org-chart-improved {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .org-level-improved {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            width: 100%;
+            position: relative;
+        }
+        .org-node-improved {
+            margin: 0 15px;
+            text-align: center;
+            position: relative;
+        }
+        .org-node-card-improved {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            min-width: 200px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+        .org-node-card-improved:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+        .org-node-card-improved.director {
+            background-color: rgba(0, 113, 227, 0.05);
+            border: 2px solid var(--primary-color);
+        }
+        .org-node-card-improved.admin {
+            background-color: rgba(255, 59, 48, 0.05);
+            border: 2px solid var(--danger-color);
+        }
+        .org-node-card-improved.manager {
+            background-color: rgba(255, 149, 0, 0.05);
+            border: 2px solid var(--warning-color);
+        }
+        .org-node-card-improved.crew {
+            background-color: rgba(52, 199, 89, 0.05);
+            border: 2px solid var(--success-color);
+        }
+        .org-node-avatar-improved {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 20px;
+        }
+        .org-node-name-improved {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .org-node-title-improved {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .org-node-actions-improved {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 15px;
+        }
+        .org-node-actions-improved .btn {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        /* Organization Chart Connectors */
+        .org-chart-improved::before {
+            content: '';
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            width: 1px;
+            height: 30px;
+            background-color: var(--border-color);
+            z-index: 1;
+        }
+        .org-level-improved::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            width: 1px;
+            height: 30px;
+            background-color: var(--border-color);
+            z-index: 1;
+        }
+        .org-level-improved:first-child::before {
+            display: none;
+        }
+        .org-node-improved::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            width: 1px;
+            height: 30px;
+            background-color: var(--border-color);
+            z-index: 1;
+        }
+        .org-node-improved::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: var(--border-color);
+            z-index: 1;
+        }
+        .org-level-improved:first-child .org-node-improved::before,
+        .org-level-improved:first-child .org-node-improved::after {
+            display: none;
+        }
+        /* Cashbill Form */
         .cashbill-form {
             max-width: 800px;
             margin: 0 auto;
@@ -846,15 +885,8 @@
             align-items: center;
             margin-bottom: 15px;
             padding: 15px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--light-bg);
             border-radius: var(--radius);
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-        }
-        .cashbill-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .cashbill-item-info {
             flex: 1;
@@ -883,18 +915,12 @@
             margin-left: 10px;
             color: var(--danger-color);
             cursor: pointer;
-            transition: var(--transition);
-        }
-        .cashbill-item-remove:hover {
-            transform: scale(1.2);
         }
         .cashbill-summary {
             margin-top: 20px;
             padding: 15px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--light-bg);
             border-radius: var(--radius);
-            border: 1px solid var(--glass-border);
         }
         .cashbill-summary-row {
             display: flex;
@@ -905,9 +931,9 @@
             font-weight: 600;
             font-size: 18px;
             padding-top: 10px;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid var(--border-color);
         }
-        /* Logbook Form with Glass Effect */
+        /* Logbook Form */
         .logbook-form {
             max-width: 800px;
             margin: 0 auto;
@@ -918,15 +944,8 @@
         .logbook-entry {
             margin-bottom: 20px;
             padding: 15px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--light-bg);
             border-radius: var(--radius);
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-        }
-        .logbook-entry:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .logbook-entry-header {
             display: flex;
@@ -946,7 +965,7 @@
         .logbook-entry-details {
             color: var(--text-secondary);
         }
-        /* List Pages with Glass Effect */
+        /* List Pages */
         .list-actions {
             margin-bottom: 20px;
             display: flex;
@@ -967,11 +986,11 @@
             margin-left: 10px;
         }
         .entry-status.draft {
-            background: rgba(142, 142, 143, 0.1);
+            background-color: rgba(142, 142, 143, 0.1);
             color: var(--text-secondary);
         }
         .entry-status.committed {
-            background: rgba(52, 199, 89, 0.1);
+            background-color: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         .entry-actions {
@@ -988,7 +1007,7 @@
             justify-content: space-between;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid var(--border-color);
         }
         .form-actions-left {
             display: flex;
@@ -1014,10 +1033,10 @@
             transition: var(--transition);
         }
         .inventory-item-row:hover {
-            background: var(--glass-hover);
+            background-color: rgba(0, 113, 227, 0.05);
         }
         .inventory-item-row.selected {
-            background: rgba(0, 113, 227, 0.1);
+            background-color: rgba(0, 113, 227, 0.1);
         }
         .inventory-item-checkbox {
             margin-right: 10px;
@@ -1026,16 +1045,14 @@
             width: 70px;
             margin-left: 10px;
         }
-        /* Bank Records with Glass Effect */
+        /* Bank Records */
         .bank-record-summary {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
             padding: 15px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
+            background-color: var(--light-bg);
             border-radius: var(--radius);
-            border: 1px solid var(--glass-border);
         }
         .bank-record-summary-row {
             display: flex;
@@ -1046,48 +1063,49 @@
             font-weight: 600;
             font-size: 18px;
             padding-top: 10px;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid var(--border-color);
         }
-        /* Liquid Glass Animation */
-        @keyframes liquid {
-            0% {
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            }
-            50% {
-                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-            }
-            100% {
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            }
+        /* Form Check */
+        .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
         }
-        .liquid-animation {
-            animation: liquid 8s ease-in-out infinite;
+        .form-check input {
+            margin-right: 10px;
         }
-        /* Glass Glow Effect */
-        .glass-glow {
-            position: relative;
-            overflow: hidden;
+        /* Hierarchy Level Indicators */
+        .hierarchy-level {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+            text-transform: uppercase;
         }
-        .glass-glow::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
+        .level-director {
+            background-color: rgba(0, 113, 227, 0.1);
+            color: var(--primary-color);
         }
-        .glass-glow:hover::before {
-            opacity: 1;
+        .level-admin {
+            background-color: rgba(255, 59, 48, 0.1);
+            color: var(--danger-color);
+        }
+        .level-manager {
+            background-color: rgba(255, 149, 0, 0.1);
+            color: var(--warning-color);
+        }
+        .level-crew {
+            background-color: rgba(52, 199, 89, 0.1);
+            color: var(--success-color);
         }
     </style>
 </head>
 <body>
     <!-- Login Screen -->
     <div class="login-container" id="loginScreen">
-        <div class="login-card glass-glow">
+        <div class="login-card">
             <div class="login-header">
                 <h1>PNE ARENA PORTAL</h1>
                 <p>Please login to your account</p>
@@ -1119,7 +1137,7 @@
                 </button>
             </div>
             <div class="user-profile">
-                <div class="user-avatar liquid-animation" id="userAvatar">DN</div>
+                <div class="user-avatar" id="userAvatar">DN</div>
                 <div class="user-name" id="userName">Danial Danish</div>
                 <div class="user-role" id="userRole">IT Admin</div>
             </div>
@@ -1178,28 +1196,28 @@
                 <!-- Dashboard Page -->
                 <div id="dashboardPage" class="page">
                     <div class="dashboard-stats">
-                        <div class="stat-card glass-glow">
+                        <div class="stat-card">
                             <div class="stat-icon primary">
                                 <i class="fas fa-dollar-sign"></i>
                             </div>
                             <div class="stat-value" id="totalSales">RM 0.00</div>
                             <div class="stat-label">Total Sales</div>
                         </div>
-                        <div class="stat-card glass-glow">
+                        <div class="stat-card">
                             <div class="stat-icon success">
                                 <i class="fas fa-box"></i>
                             </div>
                             <div class="stat-value" id="totalProducts">0</div>
                             <div class="stat-label">Total Products</div>
                         </div>
-                        <div class="stat-card glass-glow">
+                        <div class="stat-card">
                             <div class="stat-icon warning">
                                 <i class="fas fa-exclamation-triangle"></i>
                             </div>
                             <div class="stat-value" id="lowStockItems">0</div>
                             <div class="stat-label">Low Stock Items</div>
                         </div>
-                        <div class="stat-card glass-glow">
+                        <div class="stat-card">
                             <div class="stat-icon danger">
                                 <i class="fas fa-truck"></i>
                             </div>
@@ -1207,7 +1225,7 @@
                             <div class="stat-label">Pending Deliveries</div>
                         </div>
                     </div>
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Sales Overview</div>
                             <button class="btn" id="refreshSalesChart">
@@ -1220,7 +1238,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Inventory Status</div>
                             <button class="btn" id="refreshInventoryChart">
@@ -1236,7 +1254,7 @@
                 </div>
                 <!-- Crew Management Page -->
                 <div id="crewPage" class="page" style="display: none;">
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Crew Management</div>
                             <button class="btn admin-only" id="addCrewBtn">
@@ -1263,7 +1281,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Organization Chart</div>
                             <button class="btn admin-only" id="editOrgChartBtn">
@@ -1271,7 +1289,7 @@
                             </button>
                         </div>
                         <div class="card-body">
-                            <div id="orgChartContainer" class="org-chart">
+                            <div id="orgChartContainer" class="org-chart-improved">
                                 <!-- Organization chart will be rendered here -->
                             </div>
                         </div>
@@ -1279,7 +1297,7 @@
                 </div>
                 <!-- Cashbill List Page -->
                 <div id="cashbillListPage" class="page" style="display: none;">
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Cashbill List</div>
                             <button class="btn" id="createCashbillBtn">
@@ -1318,7 +1336,7 @@
                 </div>
                 <!-- Cashbill Form Page -->
                 <div id="cashbillFormPage" class="page" style="display: none;">
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title" id="cashbillFormTitle">New Cashbill</div>
                         </div>
@@ -1442,7 +1460,7 @@
                 </div>
                 <!-- Bank Records Page -->
                 <div id="bankRecordsPage" class="page" style="display: none;">
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Bank Records</div>
                             <button class="btn" id="createBankRecordBtn">
@@ -1473,7 +1491,7 @@
                 </div>
                 <!-- Inventory Page -->
                 <div id="inventoryPage" class="page" style="display: none;">
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Inventory Management</div>
                             <button class="btn admin-only" id="addItemBtn">
@@ -1501,7 +1519,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Inventory Analytics</div>
                             <button class="btn" id="refreshInventoryAnalytics">
@@ -1517,7 +1535,7 @@
                 </div>
                 <!-- Courier Page -->
                 <div id="courierPage" class="page" style="display: none;">
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Courier Management</div>
                             <button class="btn" id="addCourierBtn">
@@ -1547,7 +1565,7 @@
                 </div>
                 <!-- Logbook List Page -->
                 <div id="logbookListPage" class="page" style="display: none;">
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Logbook Entries</div>
                             <button class="btn" id="createLogbookBtn">
@@ -1572,7 +1590,7 @@
                 </div>
                 <!-- Logbook Form Page -->
                 <div id="logbookFormPage" class="page" style="display: none;">
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title" id="logbookFormTitle">New Log Entry</div>
                         </div>
@@ -1608,7 +1626,7 @@
                 </div>
                 <!-- Administration Page -->
                 <div id="adminPage" class="page" style="display: none;">
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">System Settings</div>
                         </div>
@@ -1645,7 +1663,7 @@
                             <button class="btn" id="saveSettingsBtn">Save Settings</button>
                         </div>
                     </div>
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Data Management</div>
                         </div>
@@ -1660,7 +1678,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card glass-glow">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-title">Audit Logs</div>
                             <button class="btn" id="exportAuditLogsBtn">
@@ -1693,7 +1711,7 @@
     <div class="toast-container" id="toastContainer"></div>
     <!-- Add/Edit Crew Modal -->
     <div class="modal" id="crewModal">
-        <div class="modal-content glass-glow">
+        <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title" id="crewModalTitle">Add Crew Member</div>
                 <button class="modal-close" id="closeCrewModal">
@@ -1742,7 +1760,7 @@
     </div>
     <!-- Add/Edit Item Modal -->
     <div class="modal" id="itemModal">
-        <div class="modal-content glass-glow">
+        <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title" id="itemModalTitle">Add Item</div>
                 <button class="modal-close" id="closeItemModal">
@@ -1789,7 +1807,7 @@
     </div>
     <!-- Add Courier Modal -->
     <div class="modal" id="courierModal">
-        <div class="modal-content glass-glow">
+        <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title">Add Courier</div>
                 <button class="modal-close" id="closeCourierModal">
@@ -1836,7 +1854,7 @@
     </div>
     <!-- Select from Inventory Modal -->
     <div class="modal" id="inventorySelectModal">
-        <div class="modal-content glass-glow">
+        <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title">Select Items from Inventory</div>
                 <button class="modal-close" id="closeInventorySelectModal">
@@ -1883,7 +1901,7 @@
     </div>
     <!-- Edit Organization Chart Modal -->
     <div class="modal" id="orgChartModal">
-        <div class="modal-content glass-glow">
+        <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title">Edit Organization Structure</div>
                 <button class="modal-close" id="closeOrgChartModal">
@@ -1891,7 +1909,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div id="orgChartEditContainer" class="org-chart">
+                <div id="orgChartEditContainer" class="org-chart-improved">
                     <!-- Editable organization chart will be rendered here -->
                 </div>
             </div>
@@ -1903,7 +1921,7 @@
     </div>
     <!-- Bank Record Modal -->
     <div class="modal" id="bankRecordModal">
-        <div class="modal-content glass-glow">
+        <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title" id="bankRecordModalTitle">Create Bank Record</div>
                 <button class="modal-close" id="closeBankRecordModal">
@@ -1943,7 +1961,7 @@
     </div>
     <!-- Confirmation Modal -->
     <div class="modal" id="confirmModal">
-        <div class="modal-content glass-glow">
+        <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title">Confirmation</div>
                 <button class="modal-close" id="closeConfirmModal">
@@ -1964,10 +1982,12 @@
         const app = {
             currentUser: null,
             crew: [
-                { id: '001', name: 'Danial Danish', jobTitle: 'IT Admin', password: 'dd', accessLevel: 'admin', reportsTo: '002' },
-                { id: '002', name: 'Aidawati', jobTitle: 'Business Director', password: 'aida', accessLevel: 'superior', reportsTo: '' },
-                { id: '003', name: 'Putri Erinna', jobTitle: 'Business Manager', password: 'putri', accessLevel: 'superior', reportsTo: '001' },
-                { id: '004', name: 'Farah Elyanna', jobTitle: 'Marcomm Manager', password: 'farah', accessLevel: 'superior', reportsTo: '001' }
+                { id: '002', name: 'Aidawati', jobTitle: 'Director/Head of Business', password: 'aida', accessLevel: 'superior', reportsTo: '', hierarchyLevel: 'director' },
+                { id: '001', name: 'Danial Danish', jobTitle: 'Admin/IT', password: 'dd', accessLevel: 'admin', reportsTo: '002', hierarchyLevel: 'admin' },
+                { id: '003', name: 'Putri Erinna', jobTitle: 'General Manager CS Relationships', password: 'putri', accessLevel: 'superior', reportsTo: '002', hierarchyLevel: 'manager' },
+                { id: '004', name: 'Farah Elyanna', jobTitle: 'Marcomm & Customer Support (CS)', password: 'farah', accessLevel: 'superior', reportsTo: '003', hierarchyLevel: 'manager' },
+                { id: '005', name: 'Crew Member 1', jobTitle: 'Crew', password: 'crew1', accessLevel: 'standard', reportsTo: '004', hierarchyLevel: 'crew' },
+                { id: '006', name: 'Crew Member 2', jobTitle: 'Crew', password: 'crew2', accessLevel: 'standard', reportsTo: '004', hierarchyLevel: 'crew' }
             ],
             inventory: [
                 { stockCode: 'SKU-CLTH-0001', name: 'ROBE', category: 'CLTH', price: 99.99, quantity: 50, createdBy: '001', createdAt: new Date().toISOString() },
@@ -2533,7 +2553,7 @@
             
             // Create organization chart structure
             const orgChart = document.createElement('div');
-            orgChart.className = 'org-chart';
+            orgChart.className = 'org-chart-improved';
             
             // Find head of organization (Aidawati)
             const head = app.crew.find(c => c.id === '002');
@@ -2541,36 +2561,36 @@
             if (head) {
                 // Create head level
                 const headLevel = document.createElement('div');
-                headLevel.className = 'org-level';
-                headLevel.appendChild(createOrgNode(head, false));
+                headLevel.className = 'org-level-improved';
+                headLevel.appendChild(createOrgNodeImproved(head, false));
                 orgChart.appendChild(headLevel);
                 
-                // Add subordinates (Danial)
+                // Add subordinates (Danial and Putri)
                 const subordinates = getSubordinates(head.id);
                 if (subordinates.length > 0) {
                     const subLevel = document.createElement('div');
-                    subLevel.className = 'org-level';
+                    subLevel.className = 'org-level-improved';
                     
                     subordinates.forEach(sub => {
-                        subLevel.appendChild(createOrgNode(sub, false));
+                        subLevel.appendChild(createOrgNodeImproved(sub, false));
                         
-                        // Add sub-subordinates (Putri and Farah under Danial)
+                        // Add sub-subordinates (Farah under Putri)
                         const subSubordinates = getSubordinates(sub.id);
                         if (subSubordinates.length > 0) {
                             const subSubLevel = document.createElement('div');
-                            subSubLevel.className = 'org-level';
+                            subSubLevel.className = 'org-level-improved';
                             
                             subSubordinates.forEach(subSub => {
-                                subSubLevel.appendChild(createOrgNode(subSub, false));
+                                subSubLevel.appendChild(createOrgNodeImproved(subSub, false));
                                 
-                                // Add sub-sub-subordinates (new crew under Farah)
+                                // Add sub-sub-subordinates (Crew under Farah)
                                 const subSubSubordinates = getSubordinates(subSub.id);
                                 if (subSubSubordinates.length > 0) {
                                     const subSubSubLevel = document.createElement('div');
-                                    subSubSubLevel.className = 'org-level';
+                                    subSubSubLevel.className = 'org-level-improved';
                                     
                                     subSubSubordinates.forEach(subSubSub => {
-                                        subSubSubLevel.appendChild(createOrgNode(subSubSub, false));
+                                        subSubSubLevel.appendChild(createOrgNodeImproved(subSubSub, false));
                                     });
                                     
                                     orgChart.appendChild(subSubSubLevel);
@@ -2587,29 +2607,25 @@
             
             orgChartContainer.appendChild(orgChart);
         }
-        // Create organization node
-        function createOrgNode(crew, editable = true) {
+        // Create organization node (improved)
+        function createOrgNodeImproved(crew, editable = true) {
             const node = document.createElement('div');
-            node.className = 'org-node';
+            node.className = 'org-node-improved';
             
-            const roleClass = crew.accessLevel === 'admin' ? 'role-admin' : 
-                             crew.accessLevel === 'superior' ? 'role-superior' : 'role-standard';
+            const hierarchyClass = crew.hierarchyLevel || 'standard';
             
             node.innerHTML = `
-                <div class="org-node-card">
-                    <div class="org-node-avatar">
+                <div class="org-node-card-improved ${hierarchyClass}">
+                    <div class="org-node-avatar-improved">
                         ${crew.name.split(' ').map(n => n[0]).join('')}
                     </div>
-                    <div class="org-node-name">${crew.name}</div>
-                    <div class="org-node-title">${crew.jobTitle}</div>
+                    <div class="org-node-name-improved">${crew.name}</div>
+                    <div class="org-node-title-improved">${crew.jobTitle}</div>
                     <div>
-                        <span class="role-indicator ${roleClass}" style="font-size: 10px;">
-                            ${crew.accessLevel === 'admin' ? 'Admin' : 
-                              crew.accessLevel === 'superior' ? 'Superior' : 'Standard'}
-                        </span>
+                        <span class="hierarchy-level level-${hierarchyClass}">${crew.hierarchyLevel}</span>
                     </div>
                     ${editable ? `
-                    <div class="org-node-actions">
+                    <div class="org-node-actions-improved">
                         <button class="btn btn-sm" onclick="editCrew('${crew.id}')">
                             <i class="fas fa-edit"></i>
                         </button>
@@ -2696,6 +2712,18 @@
                 return;
             }
             
+            // Determine hierarchy level based on job title or access level
+            let hierarchyLevel = 'standard';
+            if (jobTitle.toLowerCase().includes('director')) {
+                hierarchyLevel = 'director';
+            } else if (jobTitle.toLowerCase().includes('admin') || accessLevel === 'admin') {
+                hierarchyLevel = 'admin';
+            } else if (jobTitle.toLowerCase().includes('manager') || accessLevel === 'superior') {
+                hierarchyLevel = 'manager';
+            } else if (jobTitle.toLowerCase().includes('crew')) {
+                hierarchyLevel = 'crew';
+            }
+            
             if (document.getElementById('crewIdInput').disabled) {
                 // Update existing crew
                 const crewIndex = app.crew.findIndex(c => c.id === crewId);
@@ -2706,7 +2734,8 @@
                         jobTitle,
                         password,
                         accessLevel,
-                        reportsTo
+                        reportsTo,
+                        hierarchyLevel
                     };
                     
                     addAuditLog('Update Crew', `Crew member ${name} updated`);
@@ -2720,7 +2749,8 @@
                     jobTitle,
                     password,
                     accessLevel,
-                    reportsTo
+                    reportsTo,
+                    hierarchyLevel
                 });
                 
                 addAuditLog('Add Crew', `New crew member ${name} added`);
@@ -2787,7 +2817,7 @@
             
             // Create organization chart structure
             const orgChart = document.createElement('div');
-            orgChart.className = 'org-chart';
+            orgChart.className = 'org-chart-improved';
             
             // Find head of organization (Aidawati)
             const head = app.crew.find(c => c.id === '002');
@@ -2795,36 +2825,36 @@
             if (head) {
                 // Create head level
                 const headLevel = document.createElement('div');
-                headLevel.className = 'org-level';
-                headLevel.appendChild(createOrgNode(head, true));
+                headLevel.className = 'org-level-improved';
+                headLevel.appendChild(createOrgNodeImproved(head, true));
                 orgChart.appendChild(headLevel);
                 
-                // Add subordinates (Danial)
+                // Add subordinates (Danial and Putri)
                 const subordinates = getSubordinates(head.id);
                 if (subordinates.length > 0) {
                     const subLevel = document.createElement('div');
-                    subLevel.className = 'org-level';
+                    subLevel.className = 'org-level-improved';
                     
                     subordinates.forEach(sub => {
-                        subLevel.appendChild(createOrgNode(sub, true));
+                        subLevel.appendChild(createOrgNodeImproved(sub, true));
                         
-                        // Add sub-subordinates (Putri and Farah under Danial)
+                        // Add sub-subordinates (Farah under Putri)
                         const subSubordinates = getSubordinates(sub.id);
                         if (subSubordinates.length > 0) {
                             const subSubLevel = document.createElement('div');
-                            subSubLevel.className = 'org-level';
+                            subSubLevel.className = 'org-level-improved';
                             
                             subSubordinates.forEach(subSub => {
-                                subSubLevel.appendChild(createOrgNode(subSub, true));
+                                subSubLevel.appendChild(createOrgNodeImproved(subSub, true));
                                 
-                                // Add sub-sub-subordinates (new crew under Farah)
+                                // Add sub-sub-subordinates (Crew under Farah)
                                 const subSubSubordinates = getSubordinates(subSub.id);
                                 if (subSubSubordinates.length > 0) {
                                     const subSubSubLevel = document.createElement('div');
-                                    subSubSubLevel.className = 'org-level';
+                                    subSubSubLevel.className = 'org-level-improved';
                                     
                                     subSubSubordinates.forEach(subSubSub => {
-                                        subSubSubLevel.appendChild(createOrgNode(subSubSub, true));
+                                        subSubSubLevel.appendChild(createOrgNodeImproved(subSubSub, true));
                                     });
                                     
                                     orgChart.appendChild(subSubSubLevel);
