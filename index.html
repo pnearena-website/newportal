@@ -23,6 +23,13 @@
             --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
             --radius: 12px;
+            
+            /* Liquid Glass Theme Variables */
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --glass-blur: 4px;
+            --glass-hover: rgba(255, 255, 255, 0.35);
         }
         [data-theme="dark"] {
             --primary-color: #0a84ff;
@@ -32,6 +39,12 @@
             --text-primary: #ffffff;
             --text-secondary: #8e8e93;
             --border-color: #38383a;
+            
+            /* Dark theme glass adjustments */
+            --glass-bg: rgba(30, 30, 30, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --glass-hover: rgba(50, 50, 50, 0.35);
         }
         * {
             margin: 0;
@@ -45,23 +58,36 @@
             transition: var(--transition);
             font-size: 15px;
             line-height: 1.47059;
+            /* Liquid glass background */
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-attachment: fixed;
         }
-        /* Login Screen */
+        [data-theme="dark"] body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        /* Login Screen with Glass Effect */
         .login-container {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: var(--white);
+            background: transparent;
         }
         .login-card {
-            background-color: var(--white);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
             padding: 40px;
             width: 100%;
             max-width: 400px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            transform: translateY(0);
+        }
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
         }
         .login-header {
             text-align: center;
@@ -72,6 +98,9 @@
             font-weight: 600;
             margin-bottom: 10px;
             letter-spacing: 0.5px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .login-header p {
             color: var(--text-secondary);
@@ -89,10 +118,11 @@
         .form-control {
             width: 100%;
             padding: 12px 16px;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--glass-border);
             border-radius: 8px;
             font-size: 16px;
-            background-color: var(--white);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             color: var(--text-primary);
             transition: var(--transition);
         }
@@ -100,62 +130,78 @@
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+            background: var(--glass-hover);
         }
         .btn {
             display: inline-block;
             padding: 12px 24px;
-            background-color: var(--primary-color);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 980px;
             font-size: 16px;
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
-            border-radius: 980px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: -1;
+        }
+        .btn:hover:before {
+            transform: translateX(0);
         }
         .btn:hover {
-            background-color: #0077ed;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.3);
         }
         .btn-block {
             display: block;
             width: 100%;
         }
         .btn-danger {
-            background-color: var(--danger-color);
+            background: linear-gradient(45deg, var(--danger-color), #ff625a);
         }
         .btn-danger:hover {
-            background-color: #d70015;
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.3);
         }
         .btn-success {
-            background-color: var(--success-color);
+            background: linear-gradient(45deg, var(--success-color), #44d562);
         }
         .btn-success:hover {
-            background-color: #248a3d;
+            box-shadow: 0 5px 15px rgba(52, 199, 89, 0.3);
         }
         .btn-warning {
-            background-color: var(--warning-color);
+            background: linear-gradient(45deg, var(--warning-color), #ffa633);
         }
         .btn-warning:hover {
-            background-color: #cc7700;
+            box-shadow: 0 5px 15px rgba(255, 149, 0, 0.3);
         }
         .btn-secondary {
-            background-color: var(--text-secondary);
-        }
-        .btn-secondary:hover {
-            background-color: #6e6e73;
+            background: linear-gradient(45deg, var(--text-secondary), #a0a0a5);
         }
         .btn-outline {
-            background-color: transparent;
+            background: transparent;
             border: 1px solid var(--primary-color);
             color: var(--primary-color);
         }
         .btn-outline:hover {
-            background-color: var(--primary-color);
+            background: var(--primary-color);
             color: white;
         }
-        /* Main App Layout */
+        /* Main App Layout with Glass Effects */
         .app-container {
             display: none;
             min-height: 100vh;
@@ -166,18 +212,20 @@
             left: 0;
             height: 100vh;
             width: var(--sidebar-width);
-            background-color: var(--white);
-            border-right: 1px solid var(--border-color);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border-right: 1px solid var(--glass-border);
             z-index: 100;
             transition: var(--transition);
             overflow-y: auto;
+            box-shadow: var(--glass-shadow);
         }
         .sidebar.collapsed {
             width: 70px;
         }
         .sidebar-header {
             padding: 20px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -207,26 +255,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: var(--transition);
         }
         .sidebar-toggle:hover {
-            background-color: var(--light-bg);
+            background: var(--glass-hover);
+            transform: rotate(90deg);
         }
         .user-profile {
             padding: 20px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--glass-border);
             text-align: center;
         }
         .user-avatar {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background-color: var(--primary-color);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 10px;
             font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0, 113, 227, 0.3);
+            transition: var(--transition);
+        }
+        .user-avatar:hover {
+            transform: scale(1.05);
         }
         .user-name {
             font-weight: 600;
@@ -253,12 +308,28 @@
             text-decoration: none;
             transition: var(--transition);
             border-left: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-item:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(0, 113, 227, 0.1);
+            transition: width 0.3s;
+            z-index: -1;
         }
         .menu-item:hover {
-            background-color: var(--light-bg);
+            background: var(--glass-hover);
+        }
+        .menu-item:hover:before {
+            width: 100%;
         }
         .menu-item.active {
-            background-color: rgba(0, 113, 227, 0.1);
+            background: rgba(0, 113, 227, 0.1);
             border-left-color: var(--primary-color);
             color: var(--primary-color);
         }
@@ -266,6 +337,10 @@
             margin-right: 10px;
             width: 20px;
             text-align: center;
+            transition: var(--transition);
+        }
+        .menu-item:hover i {
+            transform: translateX(3px);
         }
         .sidebar.collapsed .menu-item span {
             display: none;
@@ -286,8 +361,9 @@
             margin-left: 70px;
         }
         .header {
-            background-color: var(--white);
-            border-bottom: 1px solid var(--border-color);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            border-bottom: 1px solid var(--glass-border);
             height: var(--header-height);
             display: flex;
             align-items: center;
@@ -296,6 +372,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
+            box-shadow: var(--glass-shadow);
         }
         .header-title {
             font-size: 20px;
@@ -314,16 +391,22 @@
             padding: 20px;
         }
         .card {
-            background-color: var(--white);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            box-shadow: var(--glass-shadow);
             margin-bottom: 20px;
             overflow: hidden;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
         }
         .card-header {
             padding: 16px 20px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -335,7 +418,7 @@
         .card-body {
             padding: 20px;
         }
-        /* Tables */
+        /* Tables with Glass Effect */
         .table-container {
             overflow-x: auto;
         }
@@ -347,22 +430,22 @@
         .table td {
             padding: 12px 16px;
             text-align: left;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--glass-border);
         }
         .table th {
             font-weight: 600;
-            background-color: var(--light-bg);
+            background: var(--glass-bg);
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         .table tr:hover {
-            background-color: rgba(0, 113, 227, 0.05);
+            background: var(--glass-hover);
         }
         .table tr.selected {
-            background-color: rgba(0, 113, 227, 0.1);
+            background: rgba(0, 113, 227, 0.1);
         }
-        /* Forms */
+        /* Forms with Glass Effect */
         .form-row {
             display: flex;
             gap: 20px;
@@ -371,7 +454,7 @@
         .form-col {
             flex: 1;
         }
-        /* Toast Notifications */
+        /* Toast Notifications with Glass Effect */
         .toast-container {
             position: fixed;
             top: 20px;
@@ -379,7 +462,8 @@
             z-index: 1000;
         }
         .toast {
-            background-color: var(--white);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             padding: 16px 20px;
@@ -388,7 +472,8 @@
             align-items: center;
             min-width: 300px;
             animation: slideIn 0.3s ease forwards;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
         }
         @keyframes slideIn {
             from {
@@ -422,7 +507,7 @@
         .toast.warning i {
             color: var(--warning-color);
         }
-        /* Dashboard */
+        /* Dashboard with Glass Effect */
         .dashboard-stats {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -430,11 +515,17 @@
             margin-bottom: 30px;
         }
         .stat-card {
-            background-color: var(--white);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
             padding: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
         }
         .stat-icon {
             width: 50px;
@@ -445,21 +536,25 @@
             justify-content: center;
             font-size: 24px;
             margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        .stat-icon:hover {
+            transform: scale(1.1);
         }
         .stat-icon.primary {
-            background-color: rgba(0, 113, 227, 0.1);
+            background: rgba(0, 113, 227, 0.1);
             color: var(--primary-color);
         }
         .stat-icon.success {
-            background-color: rgba(52, 199, 89, 0.1);
+            background: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         .stat-icon.warning {
-            background-color: rgba(255, 149, 0, 0.1);
+            background: rgba(255, 149, 0, 0.1);
             color: var(--warning-color);
         }
         .stat-icon.danger {
-            background-color: rgba(255, 59, 48, 0.1);
+            background: rgba(255, 59, 48, 0.1);
             color: var(--danger-color);
         }
         .stat-value {
@@ -471,7 +566,7 @@
             color: var(--text-secondary);
             font-size: 14px;
         }
-        /* Modal */
+        /* Modal with Glass Effect */
         .modal {
             display: none;
             position: fixed;
@@ -479,7 +574,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -488,14 +584,16 @@
             display: flex;
         }
         .modal-content {
-            background-color: var(--white);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
             width: 90%;
             max-width: 900px;
             max-height: 90vh;
             overflow-y: auto;
             animation: modalSlideIn 0.3s ease forwards;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 60px 0 rgba(31, 38, 135, 0.3);
         }
         @keyframes modalSlideIn {
             from {
@@ -509,7 +607,7 @@
         }
         .modal-header {
             padding: 20px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -530,16 +628,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: var(--transition);
         }
         .modal-close:hover {
-            background-color: var(--light-bg);
+            background: var(--glass-hover);
+            transform: rotate(90deg);
         }
         .modal-body {
             padding: 20px;
         }
         .modal-footer {
             padding: 20px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--glass-border);
             display: flex;
             justify-content: flex-end;
             gap: 10px;
@@ -553,23 +653,23 @@
             font-weight: 500;
         }
         .status.in-stock {
-            background-color: rgba(52, 199, 89, 0.1);
+            background: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         .status.low-stock {
-            background-color: rgba(255, 149, 0, 0.1);
+            background: rgba(255, 149, 0, 0.1);
             color: var(--warning-color);
         }
         .status.out-of-stock {
-            background-color: rgba(255, 59, 48, 0.1);
+            background: rgba(255, 59, 48, 0.1);
             color: var(--danger-color);
         }
         .status.draft {
-            background-color: rgba(142, 142, 143, 0.1);
+            background: rgba(142, 142, 143, 0.1);
             color: var(--text-secondary);
         }
         .status.committed {
-            background-color: rgba(52, 199, 89, 0.1);
+            background: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         /* Role Indicators */
@@ -585,15 +685,15 @@
             margin-right: 5px;
         }
         .role-admin {
-            background-color: rgba(255, 59, 48, 0.1);
+            background: rgba(255, 59, 48, 0.1);
             color: var(--danger-color);
         }
         .role-superior {
-            background-color: rgba(255, 149, 0, 0.1);
+            background: rgba(255, 149, 0, 0.1);
             color: var(--warning-color);
         }
         .role-standard {
-            background-color: rgba(52, 199, 89, 0.1);
+            background: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         /* Responsive */
@@ -622,7 +722,7 @@
                 max-width: none;
             }
         }
-        /* Loading Spinner */
+        /* Loading Spinner with Glass Effect */
         .spinner {
             display: inline-block;
             width: 20px;
@@ -643,7 +743,7 @@
             height: 300px;
             margin-top: 20px;
         }
-        /* Organization Chart */
+        /* Organization Chart with Glass Effect */
         .org-chart {
             display: flex;
             flex-direction: column;
@@ -668,7 +768,7 @@
             left: 50%;
             width: 1px;
             height: 20px;
-            background-color: var(--border-color);
+            background-color: var(--glass-border);
         }
         .org-node::after {
             content: '';
@@ -677,18 +777,19 @@
             left: 0;
             right: 0;
             height: 1px;
-            background-color: var(--border-color);
+            background-color: var(--glass-border);
         }
         .org-level:first-child .org-node::before,
         .org-level:first-child .org-node::after {
             display: none;
         }
         .org-node-card {
-            background-color: var(--white);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
             padding: 15px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
             min-width: 180px;
             transition: var(--transition);
         }
@@ -700,13 +801,18 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: var(--primary-color);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 10px;
             font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 113, 227, 0.3);
+            transition: var(--transition);
+        }
+        .org-node-avatar:hover {
+            transform: scale(1.05);
         }
         .org-node-name {
             font-weight: 600;
@@ -727,7 +833,7 @@
             padding: 5px 10px;
             font-size: 12px;
         }
-        /* Cashbill Form */
+        /* Cashbill Form with Glass Effect */
         .cashbill-form {
             max-width: 800px;
             margin: 0 auto;
@@ -740,8 +846,15 @@
             align-items: center;
             margin-bottom: 15px;
             padding: 15px;
-            background-color: var(--light-bg);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        .cashbill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .cashbill-item-info {
             flex: 1;
@@ -770,12 +883,18 @@
             margin-left: 10px;
             color: var(--danger-color);
             cursor: pointer;
+            transition: var(--transition);
+        }
+        .cashbill-item-remove:hover {
+            transform: scale(1.2);
         }
         .cashbill-summary {
             margin-top: 20px;
             padding: 15px;
-            background-color: var(--light-bg);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
         }
         .cashbill-summary-row {
             display: flex;
@@ -786,9 +905,9 @@
             font-weight: 600;
             font-size: 18px;
             padding-top: 10px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--glass-border);
         }
-        /* Logbook Form */
+        /* Logbook Form with Glass Effect */
         .logbook-form {
             max-width: 800px;
             margin: 0 auto;
@@ -799,8 +918,15 @@
         .logbook-entry {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: var(--light-bg);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        .logbook-entry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .logbook-entry-header {
             display: flex;
@@ -820,7 +946,7 @@
         .logbook-entry-details {
             color: var(--text-secondary);
         }
-        /* List Pages */
+        /* List Pages with Glass Effect */
         .list-actions {
             margin-bottom: 20px;
             display: flex;
@@ -841,11 +967,11 @@
             margin-left: 10px;
         }
         .entry-status.draft {
-            background-color: rgba(142, 142, 143, 0.1);
+            background: rgba(142, 142, 143, 0.1);
             color: var(--text-secondary);
         }
         .entry-status.committed {
-            background-color: rgba(52, 199, 89, 0.1);
+            background: rgba(52, 199, 89, 0.1);
             color: var(--success-color);
         }
         .entry-actions {
@@ -862,7 +988,7 @@
             justify-content: space-between;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--glass-border);
         }
         .form-actions-left {
             display: flex;
@@ -888,10 +1014,10 @@
             transition: var(--transition);
         }
         .inventory-item-row:hover {
-            background-color: rgba(0, 113, 227, 0.05);
+            background: var(--glass-hover);
         }
         .inventory-item-row.selected {
-            background-color: rgba(0, 113, 227, 0.1);
+            background: rgba(0, 113, 227, 0.1);
         }
         .inventory-item-checkbox {
             margin-right: 10px;
@@ -900,14 +1026,16 @@
             width: 70px;
             margin-left: 10px;
         }
-        /* Bank Records */
+        /* Bank Records with Glass Effect */
         .bank-record-summary {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
             padding: 15px;
-            background-color: var(--light-bg);
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
         }
         .bank-record-summary-row {
             display: flex;
@@ -918,14 +1046,48 @@
             font-weight: 600;
             font-size: 18px;
             padding-top: 10px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--glass-border);
+        }
+        /* Liquid Glass Animation */
+        @keyframes liquid {
+            0% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
+            100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+        }
+        .liquid-animation {
+            animation: liquid 8s ease-in-out infinite;
+        }
+        /* Glass Glow Effect */
+        .glass-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-glow::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .glass-glow:hover::before {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
     <!-- Login Screen -->
     <div class="login-container" id="loginScreen">
-        <div class="login-card">
+        <div class="login-card glass-glow">
             <div class="login-header">
                 <h1>PNE ARENA PORTAL</h1>
                 <p>Please login to your account</p>
@@ -957,7 +1119,7 @@
                 </button>
             </div>
             <div class="user-profile">
-                <div class="user-avatar" id="userAvatar">DN</div>
+                <div class="user-avatar liquid-animation" id="userAvatar">DN</div>
                 <div class="user-name" id="userName">Danial Danish</div>
                 <div class="user-role" id="userRole">IT Admin</div>
             </div>
@@ -1016,28 +1178,28 @@
                 <!-- Dashboard Page -->
                 <div id="dashboardPage" class="page">
                     <div class="dashboard-stats">
-                        <div class="stat-card">
+                        <div class="stat-card glass-glow">
                             <div class="stat-icon primary">
                                 <i class="fas fa-dollar-sign"></i>
                             </div>
                             <div class="stat-value" id="totalSales">RM 0.00</div>
                             <div class="stat-label">Total Sales</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card glass-glow">
                             <div class="stat-icon success">
                                 <i class="fas fa-box"></i>
                             </div>
                             <div class="stat-value" id="totalProducts">0</div>
                             <div class="stat-label">Total Products</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card glass-glow">
                             <div class="stat-icon warning">
                                 <i class="fas fa-exclamation-triangle"></i>
                             </div>
                             <div class="stat-value" id="lowStockItems">0</div>
                             <div class="stat-label">Low Stock Items</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card glass-glow">
                             <div class="stat-icon danger">
                                 <i class="fas fa-truck"></i>
                             </div>
@@ -1045,7 +1207,7 @@
                             <div class="stat-label">Pending Deliveries</div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Sales Overview</div>
                             <button class="btn" id="refreshSalesChart">
@@ -1058,7 +1220,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Inventory Status</div>
                             <button class="btn" id="refreshInventoryChart">
@@ -1074,7 +1236,7 @@
                 </div>
                 <!-- Crew Management Page -->
                 <div id="crewPage" class="page" style="display: none;">
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Crew Management</div>
                             <button class="btn admin-only" id="addCrewBtn">
@@ -1101,7 +1263,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Organization Chart</div>
                             <button class="btn admin-only" id="editOrgChartBtn">
@@ -1117,7 +1279,7 @@
                 </div>
                 <!-- Cashbill List Page -->
                 <div id="cashbillListPage" class="page" style="display: none;">
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Cashbill List</div>
                             <button class="btn" id="createCashbillBtn">
@@ -1156,7 +1318,7 @@
                 </div>
                 <!-- Cashbill Form Page -->
                 <div id="cashbillFormPage" class="page" style="display: none;">
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title" id="cashbillFormTitle">New Cashbill</div>
                         </div>
@@ -1280,7 +1442,7 @@
                 </div>
                 <!-- Bank Records Page -->
                 <div id="bankRecordsPage" class="page" style="display: none;">
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Bank Records</div>
                             <button class="btn" id="createBankRecordBtn">
@@ -1311,7 +1473,7 @@
                 </div>
                 <!-- Inventory Page -->
                 <div id="inventoryPage" class="page" style="display: none;">
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Inventory Management</div>
                             <button class="btn admin-only" id="addItemBtn">
@@ -1339,7 +1501,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Inventory Analytics</div>
                             <button class="btn" id="refreshInventoryAnalytics">
@@ -1355,7 +1517,7 @@
                 </div>
                 <!-- Courier Page -->
                 <div id="courierPage" class="page" style="display: none;">
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Courier Management</div>
                             <button class="btn" id="addCourierBtn">
@@ -1385,7 +1547,7 @@
                 </div>
                 <!-- Logbook List Page -->
                 <div id="logbookListPage" class="page" style="display: none;">
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Logbook Entries</div>
                             <button class="btn" id="createLogbookBtn">
@@ -1410,7 +1572,7 @@
                 </div>
                 <!-- Logbook Form Page -->
                 <div id="logbookFormPage" class="page" style="display: none;">
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title" id="logbookFormTitle">New Log Entry</div>
                         </div>
@@ -1446,7 +1608,7 @@
                 </div>
                 <!-- Administration Page -->
                 <div id="adminPage" class="page" style="display: none;">
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">System Settings</div>
                         </div>
@@ -1483,7 +1645,7 @@
                             <button class="btn" id="saveSettingsBtn">Save Settings</button>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Data Management</div>
                         </div>
@@ -1498,7 +1660,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card glass-glow">
                         <div class="card-header">
                             <div class="card-title">Audit Logs</div>
                             <button class="btn" id="exportAuditLogsBtn">
@@ -1531,7 +1693,7 @@
     <div class="toast-container" id="toastContainer"></div>
     <!-- Add/Edit Crew Modal -->
     <div class="modal" id="crewModal">
-        <div class="modal-content">
+        <div class="modal-content glass-glow">
             <div class="modal-header">
                 <div class="modal-title" id="crewModalTitle">Add Crew Member</div>
                 <button class="modal-close" id="closeCrewModal">
@@ -1580,7 +1742,7 @@
     </div>
     <!-- Add/Edit Item Modal -->
     <div class="modal" id="itemModal">
-        <div class="modal-content">
+        <div class="modal-content glass-glow">
             <div class="modal-header">
                 <div class="modal-title" id="itemModalTitle">Add Item</div>
                 <button class="modal-close" id="closeItemModal">
@@ -1627,7 +1789,7 @@
     </div>
     <!-- Add Courier Modal -->
     <div class="modal" id="courierModal">
-        <div class="modal-content">
+        <div class="modal-content glass-glow">
             <div class="modal-header">
                 <div class="modal-title">Add Courier</div>
                 <button class="modal-close" id="closeCourierModal">
@@ -1674,7 +1836,7 @@
     </div>
     <!-- Select from Inventory Modal -->
     <div class="modal" id="inventorySelectModal">
-        <div class="modal-content">
+        <div class="modal-content glass-glow">
             <div class="modal-header">
                 <div class="modal-title">Select Items from Inventory</div>
                 <button class="modal-close" id="closeInventorySelectModal">
@@ -1721,7 +1883,7 @@
     </div>
     <!-- Edit Organization Chart Modal -->
     <div class="modal" id="orgChartModal">
-        <div class="modal-content">
+        <div class="modal-content glass-glow">
             <div class="modal-header">
                 <div class="modal-title">Edit Organization Structure</div>
                 <button class="modal-close" id="closeOrgChartModal">
@@ -1741,7 +1903,7 @@
     </div>
     <!-- Bank Record Modal -->
     <div class="modal" id="bankRecordModal">
-        <div class="modal-content">
+        <div class="modal-content glass-glow">
             <div class="modal-header">
                 <div class="modal-title" id="bankRecordModalTitle">Create Bank Record</div>
                 <button class="modal-close" id="closeBankRecordModal">
@@ -1781,7 +1943,7 @@
     </div>
     <!-- Confirmation Modal -->
     <div class="modal" id="confirmModal">
-        <div class="modal-content">
+        <div class="modal-content glass-glow">
             <div class="modal-header">
                 <div class="modal-title">Confirmation</div>
                 <button class="modal-close" id="closeConfirmModal">
